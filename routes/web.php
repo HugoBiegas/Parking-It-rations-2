@@ -14,4 +14,21 @@ use App\Http\Controllers\Controleur_site;
 |
 */
 
+//test Valentin
+Route::get('/valentin', function () {
+    return 'PageTestValentin';
+});
+
+//test Adeline
+Route::get('/adeline', function () {
+    return 'PageTestAdeline';
+});
+
+//test Hugo
+Route::get('/hugo', function () {
+    return 'PageTestHugo';
+});
+
 Route::get('/',[Controleur_site::class,'accueil'])->name('accueil');
+
+
