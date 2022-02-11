@@ -12,7 +12,7 @@
 <!--  Tableau contenant le titre -->
 <table width="100%" cellpadding="0" cellspacing="0">
    <tr> 
-      <td class="titre">Festival Sp'or<br>
+      <td class="titre">Parking<br>
       <span id="texteNiveau2" class="texteNiveau2">
       Parking</span><br>&nbsp;
       </td>
