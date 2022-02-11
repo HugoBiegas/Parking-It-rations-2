@@ -1,4 +1,4 @@
-@extends('ModeleSite')
+@extends('model/ModeleSite')
 
 @section('contenu')
 <div class="title m-b-md">
