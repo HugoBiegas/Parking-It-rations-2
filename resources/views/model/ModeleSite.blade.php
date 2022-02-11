@@ -17,6 +17,6 @@
       </nav>
 </head>
 <body>
-
+   @yield('contenu')
 </body>
 </html>
