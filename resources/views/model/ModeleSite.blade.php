@@ -13,12 +13,10 @@
 <table width="100%" cellpadding="0" cellspacing="0">
    <tr> 
       <td class="titre">Parking<br>
-      <span id="texteNiveau2" class="texteNiveau2">
-      Parking</span><br>&nbsp;
       </td>
    </tr>
 </table>
-
+<br><br>
 
 <!--  Tableau contenant les menus -->
 <table width="80%" cellpadding="0" cellspacing="0" class="tabMenu" align="center">
