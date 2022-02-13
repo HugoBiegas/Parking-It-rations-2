@@ -5,6 +5,9 @@
         {{ csrf_field() }}
 
         <input type="email" name="email" placeholder="Email">
+        @if($errors->has('email'))
+            <p>{{ $errors->first('email') }}</p>
+        @endif
         <input type="password" name="password" placeholder="Mot de passe">
         <input type="password" name="password_confirmation" placeholder="Mot de passe (confirmation)">
         <input type="text" name="prénom" placeholder="prénom">

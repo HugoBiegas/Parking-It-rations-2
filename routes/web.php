@@ -38,6 +38,8 @@ Route::post('/exemple_formulaire_inscription', function () {
         'email' => ['required', 'email'],
         'password' => ['required', 'confirmed', 'min:8'],
         'password_confirmation' => ['required'],
+    ], [
+        'password.min' => 'Pour des raisons de sécurité, votre mot de passe doit faire :min caractères.'
     ]);
     //Création de l'utilisateur
     $utilisateur = App\Utilisateur::create([
