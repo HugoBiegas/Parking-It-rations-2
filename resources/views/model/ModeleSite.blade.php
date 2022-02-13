@@ -19,15 +19,15 @@
 <br><br>
 
 <!--  Tableau contenant les menus -->
-<table width="80%" cellpadding="0" cellspacing="0" class="tabMenu" align="center">
+<table width="90%" cellpadding="0" cellspacing="0" class="tabMenu" align="center">
    <tr>
       <td class="menu"><a href="accueil">Accueil</a></td>
       <td class="menu"><a href="">
-      Gestion d'équipes</a></td>
+      Reservation</a></td>
       <td class="menu"><a href="">
-      Gestion établissements</a></td>
+      Liste d'attente</a></td>
       <td class="menu"><a href="">
-      Attributions chambres</a></td>
+      Compte</a></td>
    </tr>
 </table>
    @yield('contenu')
