@@ -5,9 +5,32 @@ use App\Http\Controllers\Controleur_site;
 
 //Page de test et routes de test pour tous les collaborateurs
 //Ces dernières peuvent tester leur routes sur leurs pages dédiées et tester les routes ici avant de les mettre definitevement dans le reste des routes
+
 //test Valentin
 Route::get('/valentin', function () {
     return view('PageTestValentin');
+});
+
+//Créer un users
+Route::post('/valentin', function () {
+    $utilisateur = App\Utilisateur::create([
+        'email' => request('email'),
+        'mot_de_passe' => bcrypt(request('password')),
+        'prénom' => request('prénom'),
+        'nom' => request('nom'),
+    ]);
+
+    return "Nous avons reçu votre email qui est " . request('email') . ' et votre mot de passe est ' . request('password');
+});
+
+//Afficher users
+//utilisateurs.blade.php --> Page test pour afficher la liste des utilisateurs
+Route::get('/utilisateurs', function () {
+    $utilisateurs = App\Utilisateur::all();
+
+    return view('utilisateurs', [
+        'utilisateurs' => $utilisateurs
+    ]);
 });
 
 //test Adeline
@@ -26,8 +49,8 @@ Valentin : Pas compris à quoi ça sert donc pour l'instant je le mets en commen
 Route::get('/',[Controleur_site::class,'accueil'])->name('accueil');
 */
 
-//
+//Page de démarrage
 Route::get('/', function () {
-    return view('PageTestHugo');
+    return view('compte/connection');
 });
 
