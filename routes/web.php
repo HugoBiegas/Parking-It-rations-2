@@ -21,7 +21,7 @@ Route::get('/hugo', function () {
     return view('PageTestHugo');
 });
 //Fin de TEST
-//////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
 //Exemple
 
 //Formulaire inscription exemple
@@ -32,6 +32,11 @@ Route::get('/efi', function () {
 //Création utilisateur exemple
 //Avec récupération des données du formulaire ci dessus
 Route::post('/exemple_formulaire_inscription', function () {
+    request()->validate([
+        'email' => ['required', 'email'],
+        'password' => ['required', 'confirmed', 'min:8'],
+        'password_confirmation' => ['required'],
+    ]);
     $utilisateur = App\Utilisateur::create([
         'email' => request('email'),
         'mot_de_passe' => bcrypt(request('password')),
@@ -52,7 +57,7 @@ Route::get('/exemple_liste_users', function () {
     ]);
 });
 
-
+////////////////////////////////////////////////////////////
 
 /* 
 Valentin : Pas compris à quoi ça sert donc pour l'instant je le mets en commentaire jusqu'à une explication
