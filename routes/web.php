@@ -22,17 +22,6 @@ Route::post('/valentin', function () {
 
     return "Nous avons reçu votre email qui est " . request('email') . ' et votre mot de passe est ' . request('password');
 });
-
-//Afficher users
-//utilisateurs.blade.php --> Page test pour afficher la liste des utilisateurs
-Route::get('/utilisateurs', function () {
-    $utilisateurs = App\Utilisateur::all();
-
-    return view('utilisateurs', [
-        'utilisateurs' => $utilisateurs
-    ]);
-});
-
 //test Adeline
 Route::get('/adeline', function () {
     return view('PageTestAdeline');
@@ -43,6 +32,20 @@ Route::get('/hugo', function () {
     return view('PageTestHugo');
 });
 //Fin de TEST
+//Exemple
+
+
+//Afficher users
+//exemple_liste_users.blade.php --> Page test pour afficher la liste des utilisateurs
+Route::get('/exemple_liste_users', function () {
+    $utilisateurs = App\Utilisateur::all();
+
+    return view('exemple_liste_users', [
+        'utilisateurs' => $utilisateurs
+    ]);
+});
+
+
 
 /* 
 Valentin : Pas compris à quoi ça sert donc pour l'instant je le mets en commentaire jusqu'à une explication
