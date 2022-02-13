@@ -11,17 +11,6 @@ Route::get('/valentin', function () {
     return view('PageTestValentin');
 });
 
-//Créer un users
-Route::post('/valentin', function () {
-    $utilisateur = App\Utilisateur::create([
-        'email' => request('email'),
-        'mot_de_passe' => bcrypt(request('password')),
-        'prénom' => request('prénom'),
-        'nom' => request('nom'),
-    ]);
-
-    return "Nous avons reçu votre email qui est " . request('email') . ' et votre mot de passe est ' . request('password');
-});
 //test Adeline
 Route::get('/adeline', function () {
     return view('PageTestAdeline');
@@ -32,10 +21,28 @@ Route::get('/hugo', function () {
     return view('PageTestHugo');
 });
 //Fin de TEST
+//////////////////////////////////////////
 //Exemple
 
+//Formulaire inscription exemple
+Route::get('/efi', function () {
+    return view('exemple_formulaire_inscription');
+});
 
-//Afficher users
+//Création utilisateur exemple
+//Avec récupération des données du formulaire ci dessus
+Route::post('/exemple_formulaire_inscription', function () {
+    $utilisateur = App\Utilisateur::create([
+        'email' => request('email'),
+        'mot_de_passe' => bcrypt(request('password')),
+        'prénom' => request('prénom'),
+        'nom' => request('nom'),
+    ]);
+
+    return "Nous avons reçu votre email qui est " . request('email') . ' et votre mot de passe est ' . request('password');
+});
+
+//Liste utilisateurs exemple
 //exemple_liste_users.blade.php --> Page test pour afficher la liste des utilisateurs
 Route::get('/exemple_liste_users', function () {
     $utilisateurs = App\Utilisateur::all();
