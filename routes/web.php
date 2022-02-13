@@ -26,43 +26,15 @@ Route::get('/hugo', function () {
 //Exemple
 
 //Formulaire inscription exemple
-Route::get('/efi', function () {
-    return view('exemple_formulaire_inscription');
-});
+Route::get('/efi', 'InscriptionController@formulaire');
 
 //Création utilisateur exemple
 //Avec récupération des données du formulaire ci dessus
-Route::post('/exemple_formulaire_inscription', function () {
-    //Condition a verifier pour la conformité du formulaire
-    request()->validate([
-        'email' => ['required', 'email'],
-        'password' => ['required', 'confirmed', 'min:8'],
-        'password_confirmation' => ['required'],
-    ], [
-        'password.min' => 'Pour des raisons de sécurité, votre mot de passe doit faire :min caractères.'
-    ]);
-    //Création de l'utilisateur
-    $utilisateur = App\Utilisateur::create([
-        'email' => request('email'),
-        'mot_de_passe' => bcrypt(request('password')),
-        'prénom' => request('prénom'),
-        'nom' => request('nom'),
-    ]);
-
-    return "Nous avons reçu votre email qui est " . request('email') . ' et votre mot de passe est ' . request('password');
-});
+Route::post('/exemple_formulaire_inscription', 'InscriptionController@traitement');
 
 //Liste utilisateurs exemple
 //exemple_liste_users.blade.php --> Page test pour afficher la liste des utilisateurs
-Route::get('/elu', function () {
-    $utilisateurs = App\Utilisateur::all(); //Récupération de TOUS les utilisateurs
-    //Affichage de la page exemple_liste_users avec les utilisateurs recupéré
-    return view('exemple_liste_users', [
-        'utilisateurs' => $utilisateurs
-    ]);
-});
-
-////////////////////////////////////////////////////////////
+Route::get('/elu', 'UtilisateursController@listetest');
 
 /* 
 Valentin : Pas compris à quoi ça sert donc pour l'instant je le mets en commentaire jusqu'à une explication

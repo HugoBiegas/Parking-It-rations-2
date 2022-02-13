@@ -45,3 +45,21 @@ Pour lancer les migrations --> php artisan migrate
     php artisan migrate:refresh --> réinitialise et relance les migrations
     php artisan migrate:rollback --> annule la dernière migration
     php artisan migrate:status --> donne des informations sur les migrations
+
+////////////////////////////////////////////////////////
+
+3 - Model (Valentin)
+
+Pour simplifier le code mettre les model dans App et pas dans App/Models
+
+///////////////////////////////////////////////////////////////
+
+4 - Controller (valentin)
+
+Pour créer un controller --> php artisan make:controller nom_du_controller
+CHANGER --> use Illuminate\Http\Request;   par     use App\Utilisateur;
+
+
+Probleme --> Class ... does not exist
+Solution --> Ajout de "->namespace('App\Http\Controllers')" dans App\Http\Providers\RouteServiceProvider.php
+
