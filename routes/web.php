@@ -20,8 +20,9 @@ Route::get('/adeline', function () {
 Route::get('/hugo', function () {
     return view('PageTestHugo');
 });
-//Fin de TEST
+
 ////////////////////////////////////////////////////////////////////////
+
 //Exemple
 
 //Formulaire inscription exemple
@@ -32,11 +33,13 @@ Route::get('/efi', function () {
 //Création utilisateur exemple
 //Avec récupération des données du formulaire ci dessus
 Route::post('/exemple_formulaire_inscription', function () {
+    //Condition a verifier pour la conformité du formulaire
     request()->validate([
         'email' => ['required', 'email'],
         'password' => ['required', 'confirmed', 'min:8'],
         'password_confirmation' => ['required'],
     ]);
+    //Création de l'utilisateur
     $utilisateur = App\Utilisateur::create([
         'email' => request('email'),
         'mot_de_passe' => bcrypt(request('password')),
@@ -49,9 +52,9 @@ Route::post('/exemple_formulaire_inscription', function () {
 
 //Liste utilisateurs exemple
 //exemple_liste_users.blade.php --> Page test pour afficher la liste des utilisateurs
-Route::get('/exemple_liste_users', function () {
-    $utilisateurs = App\Utilisateur::all();
-
+Route::get('/elu', function () {
+    $utilisateurs = App\Utilisateur::all(); //Récupération de TOUS les utilisateurs
+    //Affichage de la page exemple_liste_users avec les utilisateurs recupéré
     return view('exemple_liste_users', [
         'utilisateurs' => $utilisateurs
     ]);

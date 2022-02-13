@@ -1,7 +1,7 @@
 @extends('model/ModeleSite')
 
 @section('contenu')
-<form action="/exemple_formulaire_inscription" method="post">
+    <form action="/exemple_formulaire_inscription" method="post">
         {{ csrf_field() }}
 
         <input type="email" name="email" placeholder="Email">
