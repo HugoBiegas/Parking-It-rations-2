@@ -68,3 +68,7 @@ Solution --> Ajout de "->namespace('App\Http\Controllers')" dans App\Http\Provid
 5 - Layout (valentin)
 
 L'extends --> Mettre le chemin du layout
+/////////////////////////////////////////////////////////
+
+6- breeze
+https://laravel.com/docs/9.x/starter-kits
