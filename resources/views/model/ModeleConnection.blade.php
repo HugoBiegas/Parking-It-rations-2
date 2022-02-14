@@ -1,22 +1,23 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<!-- TITRE ET MENUS -->
+<html lang="fr">
 <head>
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <title>Début</title>
-      <nav>
-         <ul>
-            <li><a href="">Accueil</a></li>
-            <li><a href="">
-            Gestion d'équipes</a></li>
-            <li><a href="">
-            Gestion établissements</a></li>
-            <li><a href="">
-            Attributions chambres</a></li>
-         </ul>
-      </nav>
+<title>Parking</title>
+<meta http-equiv="Content-Language" content="fr">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="cssGeneral.css" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body class="basePage">
+
+<!--  Tableau contenant le titre -->
+<table width="100%" cellpadding="0" cellspacing="0">
+   <tr> 
+      <td class="titre">Parking<br>
+      </td>
+   </tr>
+</table>
+<br><br>
    @yield('contenu')
 </body>
+
 </html>

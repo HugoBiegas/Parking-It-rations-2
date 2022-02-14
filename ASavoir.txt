@@ -63,3 +63,8 @@ CHANGER --> use Illuminate\Http\Request;   par     use App\Utilisateur;
 Probleme --> Class ... does not exist
 Solution --> Ajout de "->namespace('App\Http\Controllers')" dans App\Http\Providers\RouteServiceProvider.php
 
+/////////////////////////////////////////////////////////
+
+5 - Layout (valentin)
+
+L'extends --> Mettre le chemin du layout

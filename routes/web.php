@@ -36,6 +36,10 @@ Route::post('/exemple_formulaire_inscription', 'InscriptionController@traitement
 //exemple_liste_users.blade.php --> Page test pour afficher la liste des utilisateurs
 Route::get('/elu', 'UtilisateursController@listetest');
 
+//Connexion exemple
+Route::get('/connexion', 'ConnexionController@formulaire');
+Route::post('/connexion', 'ConnexionController@traitement');
+
 /* 
 Valentin : Pas compris à quoi ça sert donc pour l'instant je le mets en commentaire jusqu'à une explication
 Route::get('/',[Controleur_site::class,'accueil'])->name('accueil');
