@@ -1,5 +1,7 @@
 @extends('ModeleSite')
 
 @section('contenu')
-//Le contenu
+<div class="title m-b-md">
+    Bonjour
+</div>
 @endsection

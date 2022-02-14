@@ -1,0 +1,65 @@
+A QUOI SERT CE DOCUMENT ?
+
+Document pour renseigner tout ce qui est utile pour :
+- La comprehension du code
+- Le bon fonctionnement de ce dernier
+Pour une personne tiers
+Cela permet aux collaborateurs de Concentrer tous les infos.
+Si vous rencontrez des problèmes consultez d'abord ce fichier pour tenter de trouver la solution.
+
+///////////////////////////////////////////////
+
+COMMENT LE MAINTENIR ?
+
+Ce document peut et doit être modifier par tous les collaborateurs.
+Pour le modifier :
+                - Chercher si le "sujet" est pas déjà crée (Scroll de souris ou recherche avec CTRL + F)
+                - Si le sujet a été crée --> Apportez les modifs dans ce dernier
+                - Si le sujet n'a PAS été crée --> Créez le
+
+Pour la création d'un sujet :
+                - Mettre un séparateur avec le dernier sujet en date 
+                séparateur --> "////////////////////////////////////////"
+                - Numéro du sujet + Mettre un titre explicite + (Nom du collaborateur)
+                - Rapide description du sujet
+
+///////////////////////////////////////////////
+
+1 - A FAIRE TOUT LE TEMPS
+
+- Commenter le code au max !!!!!
+- Faire TRES régulièrement des commits avec une description la plus precise possible
+- Communiquer rapidement sur des problèmes rencontrés
+
+- Donner les prérequis si cela est nécessaire (dans le code en commenteire ou ici)
+- Communiquer les erreurs rencontrer et les solutions 
+
+////////////////////////////////////////////////
+
+2 - Migration (Valentin)
+
+Pour lancer les migrations --> php artisan migrate
+
+    php artisan migrate:fresh --> supprime toutes les tables et relance la migration (commande apparue avec la version 5.5)
+    php artisan migrate:install --> crée et informe la table de référence des migrations
+    php artisan migrate:refresh --> réinitialise et relance les migrations
+    php artisan migrate:rollback --> annule la dernière migration
+    php artisan migrate:status --> donne des informations sur les migrations
+
+////////////////////////////////////////////////////////
+
+3 - Model (Valentin)
+
+Pour simplifier le code mettre les model dans App et pas dans App/Models
+
+///////////////////////////////////////////////////////////////
+
+4 - Controller (valentin)
+
+Pour créer un controller --> php artisan make:controller nom_du_controller
+CHANGER --> use Illuminate\Http\Request;   par     use App\Utilisateur;
+
+
+Probleme --> Class ... does not exist
+Solution --> Ajout de "->namespace('App\Http\Controllers')" dans App\Http\Providers\RouteServiceProvider.php
+
