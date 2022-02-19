@@ -1,4 +1,4 @@
-@extends('model/ModeleSite')
+@extends('model/ModeleConnection')
 
 @section('contenu')
     <form action="/exemple_formulaire_inscription" method="post">
