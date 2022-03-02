@@ -16,8 +16,17 @@ Route::get('/adeline', function () {
     return view('PageTestAdeline');
 });
 
+Route::get('/', function () {
+    return view('auth.register');
+});
+
 //test Hugo
 Route::get('/hugo', function () {
+    return view('PageTestHugo');
+});
+
+
+Route::get('/home', function () {
     return view('PageTestHugo');
 });
 
@@ -55,9 +64,9 @@ Route::get('/',[Controleur_site::class,'accueil'])->name('accueil');
 */
 
 //Page de démarrage
-Route::get('/', function () {
-    return view('compte/connection');
-});
+//Route::get('/', function () {
+//    return view('compte/connection');
+//});
 
 Route::get('/dashboard', function () {
     return view('dashboard');

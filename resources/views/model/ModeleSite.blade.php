@@ -6,30 +6,18 @@
 <meta http-equiv="Content-Language" content="fr">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="cssGeneral.css" rel="stylesheet" type="text/css">
+
 </head>
-<body class="basePage">
-
-<!--  Tableau contenant le titre -->
-<table width="100%" cellpadding="0" cellspacing="0">
-   <tr> 
-      <td class="titre">Parking<br>
-      </td>
-   </tr>
-</table>
-<br><br>
-
-<!--  Tableau contenant les menus -->
-<table width="90%" cellpadding="0" cellspacing="0" class="tabMenu" align="center">
-   <tr>
-      <td class="menu"><a href="accueil">Accueil</a></td>
-      <td class="menu"><a href="">
-      Reservation</a></td>
-      <td class="menu"><a href="">
-      Liste d'attente</a></td>
-      <td class="menu"><a href="">
-      Compte</a></td>
-   </tr>
-</table>
+<body>
+<ul cellpadding=5 >
+  <li ><img src="{{ asset('image/logo.png') }}"></li>
+  <li class="centre"><a class="active" href="#home">Accueil</a></li>
+  <li class="centre"><a href="#news">Reservation</a></li>
+  <li class="centre"><a href="#contact">Liste d'attente</a></li>
+  <li><a href="active"><img src="{{ asset('image/compt.jpg') }}" href="login"></a></li><!-- lien ver le compte --> 
+  <li><a href="active"><img src="{{ asset('image/deconection.jpg') }}" href="active"></a></li><!-- lien pour se déconecter --> 
+  <li></li>
+</ul>
    @yield('contenu')
 </body>
 

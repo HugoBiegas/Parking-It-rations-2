@@ -6,7 +6,7 @@ Idem pour background-color) */
 /* Style de base pour la page (couleur fond : ocre, couleur texte : noir) */
 .basePage 
 {
-   background-color:#2c3e50;
+   background-color:#f3f3f3;
    color:white;
    font:11px Arial, Helvetica, sans-serif;
 }
@@ -60,6 +60,14 @@ table.tabMenu td
 } 
 
 /* Style pour les éléments du menu (mise en gras et italique) */ 
+.danslecarre
+{
+box-sizing: border-box;
+width: 100%;
+border: solid #5B6DCD 10px;
+padding: 5px;
+}
+
 .menu
 {
    font:11px Georgia, "Times New Roman", Times, serif;
@@ -72,9 +80,78 @@ table.tabMenu td
    color: #FAFBE2;
    display: block;
 }
+body
+{
+   background-color: #f3f3f3;
+
+}
+
 table.tabMenu .menu a:hover{
    background-color: #2B5BB1;
 }
+.carre{
+   margin-top: 100px;
+   margin-left: 250px;
+   display: flex;
+   position: relative;
+   width:1400px;
+   height:550px;
+   background:#FFFFFF;
+   border-top-left-radius : 20px 20px;
+   border-top-right-radius: 20px 20px;
+   border-bottom-right-radius : 20px 20px;
+   border-bottom-left-radius: 20px 20px;
+}
+.carre2{
+
+}
+
+ul {
+   display: flex;
+   justify-content: space-between;
+   font-size: 150%;
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   overflow: hidden;
+   border: 1px solid #e7e7e7;
+   background-color: #FFFFFF;
+}
+
+li {
+    float: left;
+}
+
+li.centre{
+    width:200px;
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+li a.active {
+    color: #4CAF50;
+    text-decoration: underline;
+}
+
+div {
+  align-items: center;
+  float: left;
+  height: 500px;
+  width: 50%;
+  padding: 0 10px;
+}
+
+#column1 {
+  margin-top: 100px;
+}
+
+p{
+  font-size: 20px;
+}
+
 
 
 
@@ -179,7 +256,7 @@ td.reserve
 /*pour les liens*/
 a{
    text-decoration: none;
-   color: #6698F1;
+   color: #666;
    font-weight: bold;
 }
 /*pour les input*/
