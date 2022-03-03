@@ -16,57 +16,9 @@ Route::get('/adeline', function () {
     return view('PageTestAdeline');
 });
 
-Route::get('/mdpPerdu', function () {
-    return view('Parking.compte.MdpPerdu');
-});
-Route::get('/inscription', function () {
-    return view('Parking.compte.Inscription');
-});
-Route::get('/', function () {
-    return view('Parking.compte.connection');
-});
-
-Route::get('/confirm-Mdp', function () {
-    return view('Parking.compte.Confirmations-Mdp');
-});
-Route::get('/confirm-Inscri', function () {
-    return view('Parking.compte.Confirmations-Inscriptions');
-});
-
 //test Hugo
-Route::get('/page-acueil', function () {
-    return view('Parking.Utilisateur_et_admin.aceuil');
-});
-
-Route::get('/reservation', function () {
-    return view('Parking.utilisateur.Reservation');
-});
-
-Route::get('/liste-attente', function () {
-    return view('Parking.utilisateur.Liste_Att');
-});
-
-Route::get('/Compte', function () {
-    return view('Parking.Utilisateur_et_admin.Compte_Info');
-});
-
 Route::get('/page-acueil-admin', function () {
     return view('PageTestHugo');
-});
-
-Route::get('/reservation-admin', function () {
-    return view('Parking.admin.Admin_Réservation');
-});
-Route::get('/liste-attente-admin', function () {
-    return view('Parking.utilisateur.Liste_Att');
-});
-
-Route::get('/Compte-admin', function () {
-    return view('Parking.Utilisateur_et_admin.Compte_Info');
-});
-
-Route::get('/Modifier-admin', function () {
-    return view('Parking.admin.Admin_Modif');
 });
 ////////////////////////////////////////////////////////////////////////
 
@@ -111,3 +63,53 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+
+
+Route::get('/mdpPerdu', function () {
+    return view('Parking.compte.MdpPerdu');
+});
+Route::get('/inscription', function () {
+    return view('Parking.compte.Inscription');
+});
+Route::get('/', function () {
+    return view('Parking.compte.connection');
+});
+
+Route::get('/confirm-Mdp', function () {
+    return view('Parking.compte.Confirmations-Mdp');
+});
+Route::get('/confirm-Inscri', function () {
+    return view('Parking.compte.Confirmations-Inscriptions');
+});
+
+Route::get('/page-acueil', function () {
+    return view('Parking.Utilisateur_et_admin.aceuil');
+});
+
+Route::get('/reservation', function () {
+    return view('Parking.utilisateur.Reservation');
+});
+
+Route::get('/liste-attente', function () {
+    return view('Parking.utilisateur.Liste_Att');
+});
+
+Route::get('/Compte', function () {
+    return view('Parking.Utilisateur_et_admin.Compte_Info');
+});
+
+Route::get('/reservation-admin', function () {
+    return view('Parking.admin.Admin_Réservation');
+});
+Route::get('/liste-attente-admin', function () {
+    return view('Parking.utilisateur.Liste_Att');
+});
+
+Route::get('/Compte-admin', function () {
+    return view('Parking.Utilisateur_et_admin.Compte_Info');
+});
+
+Route::get('/Modifier-admin', function () {
+    return view('Parking.admin.Admin_Modif');
+});
