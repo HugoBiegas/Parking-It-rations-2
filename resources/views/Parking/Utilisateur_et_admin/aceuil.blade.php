@@ -1,59 +1,19 @@
-@extends('model.ModeleConnection')
+@extends('model.ModeleSite')
 @section('header')
-  <li><img src="{{ asset('image/logo.png') }}"></li>
-  <li class="centre"><a class="active" href="">Se connecter</a></li>
-  <li class="centre"><a href="/register">Inscription</a></li>
+  <li class="centre"><a class="active" href="/page-acueil">Accueil</a></li>
+  <li class="centre"><a href="/reservation">Reservation</a></li>
+  <li class="centre"><a href="/liste-attente">Liste d'attente</a></li>
+  <li><a href="/Compte"><img src="{{ asset('image/compte.jpg') }}" href="login"></a></li><!-- lien ver le compte --> 
+  <li><a href="/"><img src="{{ asset('image/deconection.jpg') }}" href="active"></a></li><!-- lien pour se déconecter --> 
 @endsection
 
 @section('contenu')
-	<div class="contenu" > 
-	<x-guest-layout>
-        <x-slot name="logo">
-        </x-slot>
-
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
-
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="/page-acueil">
-            @csrf
-
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Mot de passe')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
-            </div>
-
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('se rapeler de moi') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('mot de passe oublier?') }}
-                    </a>
-                <x-button class="ml-3">
-                    {{ __('connections') }}
-                </x-button>
-            </div>
-        </form>
-	</x-guest-layout>
-	</div>
+<div class="carre">
+    <div align="center"><img src="{{asset('image/Bienvenut.png')}}"></div>
+    <div id="column1">
+    <h1>Bienvennue !</h1> 
+    <p>Sur le site de réservation de places de parking.</p>
+    <p><strong>L’application Parking vous permet de réserver et vous attribuer une place de parking immédiatement.</strong> Si votre demande ne peut pas être satisfaite vous serez placé en liste d’attente.</p>
+    </div>
+</div>
 @endsection

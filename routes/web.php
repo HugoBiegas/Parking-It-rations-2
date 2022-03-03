@@ -16,13 +16,26 @@ Route::get('/adeline', function () {
     return view('PageTestAdeline');
 });
 
+Route::get('/mdpPerdu', function () {
+    return view('Parking.compte.MdpPerdu');
+});
+Route::get('/inscription', function () {
+    return view('Parking.compte.Inscription');
+});
 Route::get('/', function () {
-    return view('Parking.Utilisateur_et_admin.aceuil');
+    return view('Parking.compte.connection');
+});
+
+Route::get('/confirm-Mdp', function () {
+    return view('Parking.compte.Confirmations-Mdp');
+});
+Route::get('/confirm-Inscri', function () {
+    return view('Parking.compte.Confirmations-Inscriptions');
 });
 
 //test Hugo
 Route::get('/page-acueil', function () {
-    return view('PageTestHugo');
+    return view('Parking.Utilisateur_et_admin.aceuil');
 });
 
 Route::get('/reservation', function () {

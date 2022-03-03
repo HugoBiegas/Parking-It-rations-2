@@ -11,7 +11,6 @@
 <ul cellpadding=5 >
   <li ><img src="{{ asset('image/logo.png') }}"></li>
   @yield('header')
-  <li><a href=""><img src="{{ asset('image/deconection.jpg') }}" href="active"></a></li><!-- lien pour se déconecter --> 
 </ul>
    @yield('contenu')
 </body>

@@ -4,6 +4,7 @@
   <li class="centre"><a href="/reservation">Reservation</a></li>
   <li class="centre"><a class="active" href="">Liste d'attente</a></li>
   <li><a href="/Compte"><img src="{{ asset('image/compte.jpg') }}" href="login"></a></li><!-- lien ver le compte --> 
+  <li><a href="/"><img src="{{ asset('image/deconection.jpg') }}" href="active"></a></li><!-- lien pour se déconecter --> 
 @endsection
 @section('contenu')
 <div class="carreReservation">

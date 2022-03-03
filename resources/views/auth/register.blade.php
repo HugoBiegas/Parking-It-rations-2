@@ -1,8 +1,8 @@
 @extends('model.ModeleConnection')
 @section('header')
   <li><img src="{{ asset('image/logo.png') }}"></li>
-  <li class="centre"><a href="/">Se connecter</a></li>
-  <li class="centre"><a  class="active" href="">Inscription</a></li>
+  <li class="centre"><a class="active" href="/">Se connecter</a></li>
+  <li class="centre"><a   href="/inscription">Inscription</a></li>
 @endsection
 @section('contenu')
     <div class="contenuR" > 
