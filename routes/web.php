@@ -17,19 +17,44 @@ Route::get('/adeline', function () {
 });
 
 Route::get('/', function () {
-    return view('auth.register');
+    return view('Parking.Utilisateur_et_admin.aceuil');
 });
 
 //test Hugo
-Route::get('/hugo', function () {
+Route::get('/page-acueil', function () {
     return view('PageTestHugo');
 });
 
+Route::get('/reservation', function () {
+    return view('Parking.utilisateur.Reservation');
+});
 
-Route::get('/home', function () {
+Route::get('/liste-attente', function () {
+    return view('Parking.utilisateur.Liste_Att');
+});
+
+Route::get('/Compte', function () {
+    return view('Parking.Utilisateur_et_admin.Compte_Info');
+});
+
+Route::get('/page-acueil-admin', function () {
     return view('PageTestHugo');
 });
 
+Route::get('/reservation-admin', function () {
+    return view('Parking.admin.Admin_Réservation');
+});
+Route::get('/liste-attente-admin', function () {
+    return view('Parking.utilisateur.Liste_Att');
+});
+
+Route::get('/Compte-admin', function () {
+    return view('Parking.Utilisateur_et_admin.Compte_Info');
+});
+
+Route::get('/Modifier-admin', function () {
+    return view('Parking.admin.Admin_Modif');
+});
 ////////////////////////////////////////////////////////////////////////
 
 //Exemple

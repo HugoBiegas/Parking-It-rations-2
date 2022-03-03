@@ -7,10 +7,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="connexion.css" rel="stylesheet" type="text/css">
 </head>
-<body class="basePage">
-
-<!--  Tableau contenant le titre -->
+<div class="carre">
+<ul class="header">
+   @yield('header')
+</ul>
+</div>
+<div class="carre2">
    @yield('contenu')
+</div>
 </body>
 
 </html>

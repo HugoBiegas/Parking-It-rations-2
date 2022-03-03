@@ -1,5 +1,12 @@
-<x-guest-layout>
-    <x-auth-card>
+@extends('model.ModeleConnection')
+@section('header')
+  <li><img src="{{ asset('image/logo.png') }}"></li>
+  <li class="centre"><a href="/">Se connecter</a></li>
+  <li class="centre"><a  class="active" href="">Inscription</a></li>
+@endsection
+@section('contenu')
+    <div class="contenuR" > 
+    <x-guest-layout>
         <x-slot name="logo">
             <a href="/">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
@@ -46,8 +53,8 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="/">
+                    {{ __('vous avez dejat un compt?') }}
                 </a>
 
                 <x-button class="ml-4">
@@ -55,5 +62,6 @@
                 </x-button>
             </div>
         </form>
-    </x-auth-card>
 </x-guest-layout>
+</div>
+@endsection

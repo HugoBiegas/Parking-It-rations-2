@@ -3,6 +3,18 @@
 ne soit pas utile ; ceci permet une validation du W3C sans avertissement. 
 Idem pour background-color) */
 
+
+.CompteT
+{
+font-size: 150%;
+}
+
+.ContentCompte
+{
+   margin-left: 320px;
+font-size: 150%;
+}
+
 /* Style de base pour la page (couleur fond : ocre, couleur texte : noir) */
 .basePage 
 {
@@ -83,12 +95,131 @@ padding: 5px;
 body
 {
    background-color: #f3f3f3;
-
 }
 
 table.tabMenu .menu a:hover{
    background-color: #2B5BB1;
 }
+
+table.Reservation {
+margin-left: 40%;
+margin-top: 100px;
+border-collapse: collapse;
+width: 50%;
+}
+.nom
+{
+margin-left: 55%;
+margin-top: 120px;
+border-collapse: collapse;
+width: 50%;
+}
+
+
+table.AdminReserve
+{
+margin-left: 10%;
+margin-top: 25%;
+border-collapse: collapse;
+width: 80%;
+}
+
+table.Liste {
+margin-left: 40%;
+margin-top: 20px;
+border-collapse: collapse;
+width: 50%;
+}
+
+td.bar
+{
+font-size: 17px;
+border-top: thin solid #000000;
+background-color: red;
+}
+td.autre
+{
+background-color: #DEDADA;
+}
+th {
+font-family: monospace;
+width: 50%;
+padding: 5px;
+background-color: #D0E3FA;
+background-image: url(sky.jpg);
+}
+
+td {
+font-family: sans-serif;
+border-right: thin solid #000000;
+border-left: thin solid #000000;
+padding: 20px;
+text-align: center;
+background-color: #ffffff;
+}
+
+/*button Reservation*/
+.styled {
+    border: 0;
+    line-height: 6;
+    padding: 0 70px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgba(220, 0, 0, 1);
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+.styled:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.styled:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+.identifient
+{
+   width: 200px;
+   margin-left: 190px;
+   height: 20px;
+}
+/*button Liste d'attente*/
+.styledLA {
+    border: 0;
+    line-height: 3;
+    padding: 0 50px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgba(220, 0, 0, 1);
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+.styledLA:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.styledLA:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
 .carre{
    margin-top: 100px;
    margin-left: 250px;
@@ -102,10 +233,47 @@ table.tabMenu .menu a:hover{
    border-bottom-right-radius : 20px 20px;
    border-bottom-left-radius: 20px 20px;
 }
-.carre2{
-
+.carreReservation{
+   margin-top: 100px;
+   margin-left: 50px;
+   display: flex;
+   position: relative;
+   width:600px;
+   height:550px;
+   background:#FFFFFF;
+   border-top-left-radius : 20px 20px;
+   border-top-right-radius: 20px 20px;
+   border-bottom-right-radius : 20px 20px;
+   border-bottom-left-radius: 20px 20px;
+}
+.carreCompte
+{
+   margin-top: 100px;
+   margin-left: 250px;
+   display: flex;
+   position: relative;
+   width:1400px;
+   height:550px;
+   background:#FFFFFF;
+   border-top-left-radius : 20px 20px;
+   border-top-right-radius: 20px 20px;
+   border-bottom-right-radius : 20px 20px;
+   border-bottom-left-radius: 20px 20px;
 }
 
+.carreReservationAdmin{
+   margin-top: 50px;
+   margin-left: 600px;
+   display: flex;
+   position: relative;
+   width:500px;
+   height:400px;
+   background:#FFFFFF;
+   border-top-left-radius : 20px 20px;
+   border-top-right-radius: 20px 20px;
+   border-bottom-right-radius : 20px 20px;
+   border-bottom-left-radius: 20px 20px;
+}
 ul {
    display: flex;
    justify-content: space-between;
@@ -140,12 +308,12 @@ div {
   align-items: center;
   float: left;
   height: 500px;
-  width: 50%;
+  width: 100%;
   padding: 0 10px;
 }
 
 #column1 {
-  margin-top: 100px;
+  margin-top: 170px;
 }
 
 p{
