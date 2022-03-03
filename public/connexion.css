@@ -1,85 +1,20 @@
+
+
+
+<!--NE PAS TOUCHER-->
+
+
 * {
+    padding: 0;
+    margin: 0;
     color: #1a1f36;
+    box-sizing: border-box;
     word-wrap: break-word;
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,sans-serif;
   }
-
-ul.header {
-  width: 800px;
-  height: 80px;
-  padding: 20px;
-  display: flex;
-   font-size: 120%;
-   list-style-type: none;
-   margin: 10px;
-   padding: 0;
-   overflow: hidden;
-   background-color: #FFFFFF;
-     box-sizing: content-box;
-
-
-}
-
-li {
-    float: left;
-}
-
-li.centre{
-    width:200px;
-    display: block;
-    color: #666;
-    text-align: center;
-    padding: 10px;
-    margin-top: 20px;
-}
-
-li a.active {
-    color: #4CAF50;
-    text-decoration: underline;
-}
-  .carre{
-   margin-top: 200px;
-   margin-left: 550px;
-   display: flex;
-   position: relative;
-   width:800px;
-   height:100px;
-   background:#FFFFFF;
-   border-top-left-radius : 20px 20px;
-   border-top-right-radius: 20px 20px;
-}
-  .carre2{
-   margin-left: 550px;
-   display: flex;
-   position: relative;
-   width:800px;
-   height:500px;
-   background:#FFFFFF;
-   border-bottom-right-radius : 20px 20px;
-   border-bottom-left-radius: 20px 20px;
-}
-div.contenu {
-  padding: 20px;
-  margin-top: 50px;
-  margin-left: 250px;
-
-}
-div.contenuFP {
-  padding: 20px;
-  margin-top: 120px;
-  margin-left: 250px;
-
-}
-div.contenuR {
-  padding: 20px;
-  margin-top: 10px;
-  margin-left: 250px;
-
-}
-
   body {
       min-height: 100%;
-      background-color: #666;
+      background-color: #ffffff;
   }
   h1 {
       letter-spacing: -1px;
@@ -116,7 +51,7 @@ div.contenuR {
     justify-content: center;
   }
   .box-root {
-      
+      box-sizing: border-box;
   }
   .flex-direction--column {
       -ms-flex-direction: column;
