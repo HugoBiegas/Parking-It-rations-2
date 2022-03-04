@@ -3,6 +3,34 @@
 ne soit pas utile ; ceci permet une validation du W3C sans avertissement. 
 Idem pour background-color) */
 
+button.header
+{
+   margin-top: -10%;
+        border-radius: 10px;
+        text-align: center;
+        padding: 10px;
+        width: 200px;
+        transition: all 0.5s;
+        font-size: 100%;
+}
+button.headerActife
+{
+   margin-top: -10%;
+        border-radius: 10px;
+        text-align: center;
+        padding: 10px;
+        width: 200px;
+        transition: all 0.5s;
+        font-size: 100%;
+            color: #4CAF50;
+    text-decoration: underline;
+}
+button.image
+{
+   background-color: #FFFFFF;
+
+}
+
 
 .CompteT
 {
@@ -12,7 +40,7 @@ font-size: 150%;
 .ContentCompte
 {
    margin-left: 320px;
-font-size: 150%;
+   font-size: 150%;
 }
 
 /* Style de base pour la page (couleur fond : ocre, couleur texte : noir) */
@@ -298,12 +326,6 @@ li.centre{
     padding: 10px;
     margin-top: 20px;
 }
-
-li a.active {
-    color: #4CAF50;
-    text-decoration: underline;
-}
-
 div {
   align-items: center;
   float: left;

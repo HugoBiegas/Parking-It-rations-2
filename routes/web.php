@@ -82,19 +82,14 @@ Route::get('/confirm-Inscri', function () {
 
 
 Route::get('/page-acueil','acueil@redirection');
+Route::post('/page-acueil','acueil@redirection');
 
 
-Route::get('/reservation', function () {
-    return view('Parking.utilisateur.Reservation');
-});
+Route::post('/reservation', 'Reservation@ReservationMiseEnPlace');
 
-Route::get('/liste-attente', function () {
-    return view('Parking.utilisateur.Liste_Att');
-});
+Route::post('/liste-attente', 'ListeAtt@ListeAttApp');
 
-Route::get('/Compte', function () {
-    return view('Parking.Utilisateur_et_admin.Compte_Info');
-});
+Route::post('/compte', 'Compte@CompteLoad');
 
 Route::get('/reservation-admin', function () {
     return view('Parking.admin.Admin_Réservation');
