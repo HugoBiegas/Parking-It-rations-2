@@ -7,6 +7,9 @@ use App\Models\Utilisateurs;
 use App\Utilisateur;
 class ListeAtt extends Controller
 {
+    public function retoure(){
+        return redirect('/');
+    }
     public function ListeAttApp(){
     $ListeAtt = $_POST['BD'];
     //couper le début de la chaine 

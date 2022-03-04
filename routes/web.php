@@ -86,10 +86,15 @@ Route::post('/page-acueil','acueil@redirection');
 
 
 Route::post('/reservation', 'Reservation@ReservationMiseEnPlace');
+Route::get('/reservation', 'Reservation@retoure');
+
 
 Route::post('/liste-attente', 'ListeAtt@ListeAttApp');
+Route::get('/liste-attente', 'ListeAtt@retoure');
+
 
 Route::post('/compte', 'Compte@CompteLoad');
+Route::get('/compte', 'Compte@retoure');
 
 Route::get('/reservation-admin', function () {
     return view('Parking.admin.Admin_Réservation');

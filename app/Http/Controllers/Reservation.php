@@ -7,6 +7,9 @@ use App\Models\Utilisateurs;
 use App\Utilisateur;
 class Reservation extends Controller
 {
+    public function retoure(){
+        return redirect('/');
+    }
     
     public function ReservationMiseEnPlace()
     {

@@ -7,6 +7,9 @@ use App\Models\Utilisateurs;
 use App\Utilisateur;
 class Compte extends Controller
 {
+    public function retoure(){
+        return redirect('/');
+    }
     public function CompteLoad(){
     $Compte = $_POST['BD'];
     //couper le début de la chaine 
