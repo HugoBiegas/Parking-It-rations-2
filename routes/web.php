@@ -36,8 +36,8 @@ Route::post('/exemple_formulaire_inscription', 'InscriptionController@traitement
 Route::get('/elu', 'UtilisateursController@listetest');
 
 //Connexion exemple
-Route::get('/connexion', 'ConnexionController@formulaire');
-Route::post('/connexion', 'ConnexionController@traitement');
+Route::get('/', 'ConnexionController@formulaire');
+Route::post('/connexion', 'acueil@redirection');
 
 /* 
 Valentin : Pas compris à quoi ça sert donc pour l'instant je le mets en commentaire jusqu'à une explication
@@ -66,16 +66,13 @@ require __DIR__.'/auth.php';
 
 
 
+Route::get('/inscription','InscriptionController@formulaire');
+Route::post('/register','InscriptionController@traitement');
+
+
 Route::get('/mdpPerdu', function () {
     return view('Parking.compte.MdpPerdu');
 });
-Route::get('/inscription', function () {
-    return view('Parking.compte.Inscription');
-});
-Route::get('/', function () {
-    return view('Parking.compte.connection');
-});
-
 Route::get('/confirm-Mdp', function () {
     return view('Parking.compte.Confirmations-Mdp');
 });
@@ -83,9 +80,9 @@ Route::get('/confirm-Inscri', function () {
     return view('Parking.compte.Confirmations-Inscriptions');
 });
 
-Route::get('/page-acueil', function () {
-    return view('Parking.Utilisateur_et_admin.aceuil');
-});
+
+Route::get('/page-acueil','acueil@redirection');
+
 
 Route::get('/reservation', function () {
     return view('Parking.utilisateur.Reservation');
