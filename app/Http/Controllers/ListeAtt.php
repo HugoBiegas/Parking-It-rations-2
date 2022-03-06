@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Utilisateurs;
+use App\Models\place;
+
 use App\Utilisateur;
 class ListeAtt extends Controller
 {
@@ -22,10 +24,17 @@ class ListeAtt extends Controller
     //coupage préci de la chaine 
     $emailFinal = substr($chainDébut, 0,$firstIndex);
     $BD = Utilisateur::where('email','=', $emailFinal)->get();
+    $Place = place::all();
+    $Positions=0;
+    foreach ($Place as $p) {
+        if ($p->nomPlace == $BD[0]->nom) {
+            $Positions= $p->id;
+        }
+    }
     if($BD[0]->admin == 0){
-        return view('Parking.utilisateur.Liste_Att',['BD' => $BD]);
+        return view('Parking.utilisateur.Liste_Att',['BD' => $BD, 'Place' =>$Place, 'cpt'=>0, 'Positions'=>$Positions]);
     }else if ($BD[0]->admin == 1) {
-        return view('Parking.utilisateur.Liste_Att',['BD' => $BD]);
+        return view('Parking.utilisateur.Liste_Att',['BD' => $BD, 'Place' =>$Place, 'cpt'=>0, 'Positions'=>$Positions]);
     }
     return view('Parking.compte.connection');        
     }

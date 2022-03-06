@@ -115,3 +115,6 @@ Route::get('/admin-inscriptions', 'GereInscriptions@retoure');
 
 Route::post('/reservation-ajou', 'reservationAjoue@ReservationAdd');
 Route::get('/reservation-ajou', 'reservationAjoue@retoure');
+
+Route::post('/suprimer', 'supresion@détruire');
+Route::get('/suprimer', 'supresion@retoure');

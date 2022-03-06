@@ -27,11 +27,23 @@ class reservationAjoue extends Controller
         //coupage préci de la chaine 
         $emailFinal = substr($chainDébut, 0,$firstIndex);
         $BD = Utilisateur::where('email','=', $emailFinal)->get();
-
+        $Place = place::all();
+        $cpt=0;
+        foreach ($Place as $p) {
+            if ($p->nomPlace == $BD[0]->prénom) {
+                   $cpt++;
+               }   
+        }
+        if ($cpt == 0 ) {
         $place = place::create([
-            'email' => request('email'),
+            'nomPlace' => $BD[0]->prénom,
             'date_debut'=> '06-03-2022',
-        ]);
-        return redirect('/reservation',[$_POST['DB'], $BD]);
+        ]);  
+                $cpt=0;
+        return view('Parking.utilisateur.Reservation',compact('BD','Place','cpt'));                  
+        }  
+                $cpt=0; 
+        //afficher un message
+        return view('Parking.utilisateur.Reservation',compact('BD','Place','cpt'));     
     }
 }

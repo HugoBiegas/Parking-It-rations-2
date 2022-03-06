@@ -26,11 +26,14 @@
 <div class="carreReservationAdmin">
 		<div id="column1">
 		<p align="center">Faire une réservation</p>
-        <p align="center"><x-input id="identifiant"  placeholder="identifiant"/></p>
-        <p align="center"><x-input id="Date"  placeholder="date"/></p>
-        <p align="center"><x-input id="palceN"  placeholder="n°place"/></p>
-        <p align="center"><x-input id="DateExpir"  placeholder="Date d'expiration"/></p>
-		<p align="center"><input class="favorite styledLA" type="button" value="ajouter"></p>
+    <form method="POST" action="/reservation-ajou-admin" >
+        <p align="center"><x-input id="identifiant"  placeholder="identifiant" required/></p>
+        <p align="center"><x-input id="Date"  placeholder="date" required/></p>
+        <p align="center"><x-input id="palceN"  placeholder="n°place" required/></p>
+        <p align="center"><x-input id="DateExpir"  placeholder="Date d'expiration" required/></p>      
+
+    <p align="center"><button><input class="favorite styledLA" type="button" value="ajouter"></button></p>
+    </form>
 	    </div>
 </div>
 <table class="AdminReserve">
@@ -42,29 +45,45 @@
     <td class="bar">Modifier</td>
     <td class="bar">suprimer</td>
   </tr>
+  @foreach($Place as $p)
+  @if($cpt%2 == 1)
   <tr>
-    <td class="autre">Date réservation</td>
-    <td class="autre">Jack Russell</td>
-    <td class="autre">Poodle</td>
-    <td class="autre">Date réservation</td>
+    <td class="autre">{{$p->nomPlace}}</td>
+    <td class="autre">{{$p->date_debut}}</td>
+    <td class="autre">{{$p->id}}</td>
+    <td class="autre"></td>
     <form method="POST" action="/Modifier-admin">
     @csrf
     <input type="hidden" name="BD" id="BD" value="{{$BD}}">
     <td class="autre"><button>Modifier</button></td>
   </form>
-    <td class="autre">Poodle</td>
+      <form method="POST" action="/suprimer">
+    @csrf
+    <input type="hidden" name="place" id="place" value="{{$p}}">
+    <input type="hidden" name="BD" id="BD" value="{{$BD}}">
+    <td class="autre"><button>suprimer</button></td>
+  </form>
   </tr>
+@else
   <tr>
-    <td >Date réservation</td>
-    <td >N°place</td>
-    <td >16</td>
-    <td >Date réservation</td>
+    <td >{{$p->nomPlace}}</td>
+    <td >{{$p->date_debut}}</td>
+    <td >{{$p->id}}</td>
+    <td ></td>
     <form method="POST" action="/Modifier-admin">
     @csrf
     <input type="hidden" name="BD" id="BD" value="{{$BD}}">
     <td class="autre"><button >Modifier</button></td>
   </form>
-    <td >16</td>
+    <form method="POST" action="/suprimer">
+    @csrf
+    <input type="hidden" name="place" id="place" value="{{$p}}">
+    <input type="hidden" name="BD" id="BD" value="{{$BD}}">
+    <td class="autre"><button >suprimer</button></td>
+  </form>
   </tr>
+  @endif
+  <p hidden='true'>{{$cpt++;}}</p>
+  @endforeach
 </table>
 @endsection

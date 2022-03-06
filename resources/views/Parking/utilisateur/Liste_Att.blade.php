@@ -31,19 +31,25 @@
     <p align="center"><input class="favorite styledLA" type="button"value="Regarder"></p>
     </div>
 </div>
-<p class="nom">Vous êtes <strong>N°10</strong> sur 30 dans la liste d'attente</p>
+<p class="nom">Vous êtes <strong>N°{{$Positions}}</strong> sur 30 dans la liste d'attente</p>
 <table class="Liste">
   <tr> 
     <td class="bar">Nom</td>
     <td class="bar">Date Demande réservation</td>
   </tr>
+  @foreach($Place as $p)
+  @if($cpt%2 == 1)
+    <tr>
+    <td class="autre">{{$p->nomPlace}}</td>
+    <td class="autre">{{$p->date_debut}}</td>
+  </tr>    
+  @else
   <tr>
-    <td class="autre">Date réservation</td>
-    <td class="autre">Jack Russell</td>
-  </tr>
-  <tr>
-    <td >Date réservation</td>
-    <td >N°place</td>
-  </tr>
+    <td >{{$p->nomPlace}}</td>
+    <td >{{$p->date_debut}}</td>
+  </tr>  
+@endif
+<p hidden="true">{{$cpt++}}</p>
+@endforeach
 </table>
 @endsection

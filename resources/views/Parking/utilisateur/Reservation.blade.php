@@ -43,17 +43,22 @@
     <td class="bar">Date réservation</td>
     <td class="bar">N°place</td>
   </tr>
+  @foreach($Place as $p)
+  @if($cpt%2 == 1)
+    <tr>
+    <td class="autre">{{$p->nomPlace}}</td>
+    <td class="autre">{{$p->date_debut}}</td>
+    <td class="autre">{{$p->id}}</td>
+  </tr>    
+  @else
   <tr>
-    <td class="autre">Date réservation</td>
-    <td class="autre">Jack Russell</td>
-    <td class="autre">Poodle</td>
-
-  </tr>
-  <tr>
-    <td >Date réservation</td>
-    <td >N°place</td>
-    <td >16</td>
-  </tr>
+    <td >{{$p->nomPlace}}</td>
+    <td >{{$p->date_debut}}</td>
+    <td >{{$p->id}}</td>
+  </tr>  
+@endif
+<p hidden="true">{{$cpt++}}</p>
+@endforeach
 </table>
 
 @endsection

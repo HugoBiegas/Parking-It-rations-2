@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class reservations extends Model
+class place extends Model
 {
     protected $fillable = ['nomPlace','date_debut'];
 }
