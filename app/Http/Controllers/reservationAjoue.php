@@ -3,15 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\place;
 use App\Models\Utilisateurs;
 use App\Utilisateur;
-class Reservation extends Controller
+
+
+class reservationAjoue extends Controller
 {
     public function retoure(){
         return redirect('/');
     }
     
-    public function ReservationMiseEnPlace()
+    public function ReservationAdd()
     {
         $Reservation = $_POST['BD'];
         //couper le début de la chaine 
@@ -24,11 +27,11 @@ class Reservation extends Controller
         //coupage préci de la chaine 
         $emailFinal = substr($chainDébut, 0,$firstIndex);
         $BD = Utilisateur::where('email','=', $emailFinal)->get();
-        if($BD[0]->admin == 0){
-            return view('Parking.utilisateur.Reservation',['BD' => $BD]);
-        }else if ($BD[0]->admin == 1) {
-            return view('Parking.admin.Admin_Réservation',['BD' => $BD]);
-        }
-        return view('Parking.compte.connection');
+
+        $place = place::create([
+            'email' => request('email'),
+            'date_debut'=> '06-03-2022',
+        ]);
+        return redirect('/reservation',[$_POST['DB'], $BD]);
     }
 }

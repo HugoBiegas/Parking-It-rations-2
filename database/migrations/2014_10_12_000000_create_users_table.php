@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Utilisateurs;
 
 class CreateUsersTable extends Migration
 {
@@ -22,9 +23,19 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('mot_de_passe');
+            $table->Integer('ranfile')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
+
+        $utilisateur = Utilisateurs::create([
+            'admin'=>1,
+            'email' => 'admin@gmail.com',
+            'mot_de_passe' => Hash::make('123'),
+            'prénom' => 'root',
+            'nom' => 'admin',
+            'ranfile'=>0,
+        ]);
     }
 
     /**

@@ -27,16 +27,21 @@
     <div id="column1">
     <h1 align="center">Faire une réservation</h1> 
     <p align="center">Cliquer ici</p>
-    <p align="center"><input class="favorite styled"
+    <form method="POST" action="/reservation-ajou">
+      @csrf    
+      <input type="hidden" name="BD" id="BD" value="{{$BD}}">
+      <p align="center"><button><input class="favorite styled"
        type="button"
-       value="Réserver"></p>
+       value="Réserver">
+     </button></p>
+    </form >
     </div>
 </div>
 <table class="Reservation">
   <tr>
     <td class="bar">Nom</td>
     <td class="bar">Date réservation</td>
-    <td class="bar">Date réservation</td>
+    <td class="bar">N°place</td>
   </tr>
   <tr>
     <td class="autre">Date réservation</td>

@@ -35,19 +35,15 @@
 <table class="Liste">
   <tr> 
     <td class="bar">Nom</td>
-    <td class="bar">Date réservation</td>
-    <td class="bar">Date réservation</td>
+    <td class="bar">Date Demande réservation</td>
   </tr>
   <tr>
     <td class="autre">Date réservation</td>
     <td class="autre">Jack Russell</td>
-    <td class="autre">Poodle</td>
-
   </tr>
   <tr>
     <td >Date réservation</td>
     <td >N°place</td>
-    <td >16</td>
   </tr>
 </table>
 @endsection

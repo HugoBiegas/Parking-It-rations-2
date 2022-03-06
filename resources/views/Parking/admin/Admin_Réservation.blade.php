@@ -1,9 +1,26 @@
 @extends('model.ModeleSite')
 @section('header')
-  <li class="centre"><a href="/page-acueil">Accueil</a></li>
-  <li class="centre"><a class="active" href="/reservation">Reservation</a></li>
-  <li class="centre"><a href="/liste-attente">Liste d'attente</a></li>
-  <li><a href="/Compte"><img src="{{ asset('image/compte.jpg') }}" href="login"></a></li><!-- lien ver le compte --> 
+<form method="POST" action="/page-acueil">
+  @csrf
+    <input type="hidden" name="BD" id="BD" value="{{$BD}}">
+    <li class="centre"><button class="header">Accueil</button></li>
+</form>
+<form method="POST" action="/reservation">
+  @csrf
+    <input type="hidden" name="BD" id="BD" value="{{$BD}}">
+    <li class="centre"><button class="headerActife">Reservation</button></li>
+  </form>
+  <form method="POST" action="/admin-inscriptions">
+  @csrf
+  <input type="hidden" name="BD" id="BD" value="{{$BD}}">
+  <li><button class="image"><img src="{{ asset('image/admin.jpg') }}"></button></li><!-- lien ver le compte --> 
+    </form>
+  <form method="POST" action="/compte">
+  @csrf
+  <input type="hidden" name="BD" id="BD" value="{{$BD}}">
+  <li><button class="image"><img src="{{ asset('image/compte.jpg') }}"></button></li><!-- lien ver le compte --> 
+    </form>
+  <li><a href="/"><img src="{{ asset('image/deconection.jpg') }}" href="active"></a></li><!-- lien pour se déconecter --> 
 @endsection
 @section('contenu')
 <div class="carreReservationAdmin">
@@ -30,7 +47,11 @@
     <td class="autre">Jack Russell</td>
     <td class="autre">Poodle</td>
     <td class="autre">Date réservation</td>
-    <td class="autre"><a href="">Modifier</a></td>
+    <form method="POST" action="/Modifier-admin">
+    @csrf
+    <input type="hidden" name="BD" id="BD" value="{{$BD}}">
+    <td class="autre"><button>Modifier</button></td>
+  </form>
     <td class="autre">Poodle</td>
   </tr>
   <tr>
@@ -38,7 +59,11 @@
     <td >N°place</td>
     <td >16</td>
     <td >Date réservation</td>
-    <td ><a href="/Modifier-admin">Modifier</a></td>
+    <form method="POST" action="/Modifier-admin">
+    @csrf
+    <input type="hidden" name="BD" id="BD" value="{{$BD}}">
+    <td class="autre"><button >Modifier</button></td>
+  </form>
     <td >16</td>
   </tr>
 </table>

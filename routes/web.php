@@ -107,6 +107,11 @@ Route::get('/Compte-admin', function () {
     return view('Parking.Utilisateur_et_admin.Compte_Info');
 });
 
-Route::get('/Modifier-admin', function () {
-    return view('Parking.admin.Admin_Modif');
-});
+Route::post('/Modifier-admin', 'ModifReservation@ModifReser');
+Route::get('/Modifier-admin', 'ModifReservation@retoure');
+
+Route::post('/admin-inscriptions', 'GereInscriptions@GereInscri');
+Route::get('/admin-inscriptions', 'GereInscriptions@retoure');
+
+Route::post('/reservation-ajou', 'reservationAjoue@ReservationAdd');
+Route::get('/reservation-ajou', 'reservationAjoue@retoure');
