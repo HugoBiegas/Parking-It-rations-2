@@ -37,11 +37,13 @@ class reservationAjoue extends Controller
         if ($cpt == 0 ) {
         $place = place::create([
             'nomPlace' => $BD[0]->prénom,
-            'date_debut'=> '06-03-2022',
+            
         ]);  
+        $Place = place::all();
                 $cpt=0;
         return view('Parking.utilisateur.Reservation',compact('BD','Place','cpt'));                  
         }  
+        $Place = place::all();
                 $cpt=0; 
         //afficher un message
         return view('Parking.utilisateur.Reservation',compact('BD','Place','cpt'));     

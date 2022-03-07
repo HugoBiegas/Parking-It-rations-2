@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class place extends Model
 {
-    protected $fillable = ['nomPlace','date_debut'];
+    protected $fillable = ['nomPlace'];
 }

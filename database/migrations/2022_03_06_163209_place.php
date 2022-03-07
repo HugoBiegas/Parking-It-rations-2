@@ -16,7 +16,6 @@ class Place extends Migration
         Schema::create('places', function (Blueprint $table) {
             $table->id();
             $table->string('nomPlace');
-            $table->string('date_debut');
             $table->timestamps();
         });
     }

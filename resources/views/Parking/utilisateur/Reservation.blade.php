@@ -40,20 +40,17 @@
 <table class="Reservation">
   <tr>
     <td class="bar">Nom</td>
-    <td class="bar">Date réservation</td>
     <td class="bar">N°place</td>
   </tr>
   @foreach($Place as $p)
   @if($cpt%2 == 1)
     <tr>
     <td class="autre">{{$p->nomPlace}}</td>
-    <td class="autre">{{$p->date_debut}}</td>
     <td class="autre">{{$p->id}}</td>
   </tr>    
   @else
   <tr>
     <td >{{$p->nomPlace}}</td>
-    <td >{{$p->date_debut}}</td>
     <td >{{$p->id}}</td>
   </tr>  
 @endif
