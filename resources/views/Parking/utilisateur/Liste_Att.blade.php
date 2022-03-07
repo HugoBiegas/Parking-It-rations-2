@@ -31,7 +31,7 @@
     <p align="center"><input class="favorite styledLA" type="button"value="Regarder"></p>
     </div>
 </div>
-<p class="nom">Vous êtes <strong>N°{{$Positions}}</strong> sur 30 dans la liste d'attente</p>
+<p class="nom">Vous êtes <strong>N°{{$BD[0]->rangfile}}</strong> sur 30 dans la liste d'attente</p>
 <table class="Liste">
   <tr> 
     <td class="bar">Nom</td>

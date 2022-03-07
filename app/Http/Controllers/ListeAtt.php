@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Utilisateurs;
+use App\Models\historique;
 use App\Models\place;
 
 use App\Utilisateur;
@@ -31,10 +32,11 @@ class ListeAtt extends Controller
             $Positions= $p->id;
         }
     }
+    $rang = Utilisateurs::all();
     if($BD[0]->admin == 0){
-        return view('Parking.utilisateur.Liste_Att',['BD' => $BD, 'Place' =>$Place, 'cpt'=>0, 'Positions'=>$Positions]);
+        return view('Parking.utilisateur.Liste_Att',['BD' => $BD, 'Place' =>$Place, 'cpt'=>0, 'rang'=>$rang]);
     }else if ($BD[0]->admin == 1) {
-        return view('Parking.utilisateur.Liste_Att',['BD' => $BD, 'Place' =>$Place, 'cpt'=>0, 'Positions'=>$Positions]);
+        return view('Parking.utilisateur.Liste_Att',['BD' => $BD, 'Place' =>$Place, 'cpt'=>0, 'rang'=>$rang]);
     }
     return view('Parking.compte.connection');        
     }

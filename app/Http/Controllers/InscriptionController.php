@@ -39,7 +39,7 @@ class InscriptionController extends Controller
             'mot_de_passe' => Hash::make(request('password')),
             'prénom' => request('prénom'),
             'nom' => request('nom'),
-            'ranfile'=>$cpt,
+            'rangfile'=>null,
         ]);
         return view('Parking.compte.connection');
 

@@ -27,7 +27,6 @@
 		<div id="column1">
 		<p align="center">Faire une réservation</p>
     <form method="POST" action="/reservation-ajou-admin" >
-        <p align="center"><x-input id="identifiant"  placeholder="identifiant" required/></p>
         <p align="center"><x-input id="Date"  placeholder="date" required/></p>
         <p align="center"><x-input id="palceN"  placeholder="n°place" required/></p>
         <p align="center"><x-input id="DateExpir"  placeholder="Date d'expiration" required/></p>      

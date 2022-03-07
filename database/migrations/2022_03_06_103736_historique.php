@@ -13,11 +13,11 @@ class Historique extends Migration
      */
     public function up()
     {
-        Schema::create('HistoriquePlace', function (Blueprint $table) {
+        Schema::create('Historiques', function (Blueprint $table) {
             $table->id();
             $table->string('nomPlace');
             $table->string('date_debut');
-            $table->string('date_fin');
+            $table->string('date_fin')->nullable();
             $table->timestamps();
         });
     }

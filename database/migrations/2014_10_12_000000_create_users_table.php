@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('mot_de_passe');
-            $table->Integer('ranfile')->nullable();
+            $table->Integer('rangfile')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -26,7 +26,6 @@
 <div class="carreReservationAdmin">
 		<div id="column1">
 		<p align="center">Modifier réservation</p>
-        <p align="center"><x-input id="identifiant"  placeholder="identifiant"/></p>
         <p align="center"><x-input id="Date"  placeholder="date"/></p>
         <p align="center"><x-input id="palceN"  placeholder="n°place"/></p>
         <p align="center"><x-input id="DateExpir"  placeholder="Date d'expiration"/></p>
