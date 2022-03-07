@@ -35,10 +35,14 @@ class reservationAjoue extends Controller
                }   
         }
         if ($cpt == 0 ) {
-        $place = place::create([
-            'nomPlace' => $BD[0]->prénom,
-            
-        ]);  
+            $cpt=0;
+            foreach ($Place as $p) {
+            if ($p->nomPlace != 'null' && $cpt==0) {
+                $enplacement = places::findOrFail($p->id);
+            }
+        }
+        $enplacement->nomPlace = $BD[0]->nom;
+        $enplacement->update(); 
         $Place = place::all();
                 $cpt=0;
         return view('Parking.utilisateur.Reservation',compact('BD','Place','cpt'));                  
