@@ -1,5 +1,6 @@
 @extends('model.ModeleSite')
 @section('header')
+
 <form method="POST" action="/page-acueil">
   @csrf
     <input type="hidden" name="BD" id="BD" value="{{$BD}}">
@@ -18,10 +19,11 @@
   <form method="POST" action="/compte">
   @csrf
   <input type="hidden" name="BD" id="BD" value="{{$BD}}">
-  <li><button class="image"><img src="{{ asset('image/compte.jpg') }}"></button></li><!-- lien ver le compte --> 
+  <li><button class="image"><img  src="{{ asset('image/compte.jpg') }}"></button></li><!-- lien ver le compte --> 
     </form>
-  <li><a href="/"><img src="{{ asset('image/deconection.jpg') }}" href="active"></a></li><!-- lien pour se déconecter --> 
-@endsection
+  <li><a href="/"><img src="{{ asset('image/deconection.jpg') }}" href="active" ></a></li><!-- lien pour se déconecter --> 
+
+  @endsection
 
 @section('contenu')
 <div class="carre">
