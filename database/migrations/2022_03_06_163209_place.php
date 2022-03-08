@@ -27,6 +27,6 @@ class Place extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('place');
+        Schema::dropIfExists('places');
     }
 }

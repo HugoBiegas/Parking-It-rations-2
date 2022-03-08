@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Historique extends Model
 {
+    use HasFactory;
     protected $fillable = ['nomPlace','date_debut','date_fin'];
 }
