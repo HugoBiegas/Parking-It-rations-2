@@ -37,19 +37,23 @@
     <td class="bar">Nom</td>
     <td class="bar">Date Demande réservation</td>
   </tr>
-  @foreach($Place as $p)
+@foreach ($Place as $p)
+  @foreach($rang as $g)
+  @if ($g->rangfile ==0)
   @if($cpt%2 == 1)
     <tr>
-    <td class="autre">{{$p->nomPlace}}</td>
+    <td class="autre">{{$p->rangfile}}</td>
     <td class="autre">{{$p->date_debut}}</td>
   </tr>    
   @else
   <tr>
-    <td >{{$p->nomPlace}}</td>
+    <td >{{$p->rangfil}}</td>
     <td >{{$p->date_debut}}</td>
   </tr>  
-@endif
-<p hidden="true">{{$cpt++}}</p>
+@endif 
+<p hidden="true">{{$cpt++}}</p>    
+@endif 
+@endforeach
 @endforeach
 </table>
 @endsection

@@ -14,7 +14,7 @@ class placeFactory extends Factory
     public function definition()
     {
         return [
-            'nomPlace'=>"null",
+            'nomPlace'=>"place libre",
         ];
     }
 }

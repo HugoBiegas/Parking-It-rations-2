@@ -38,27 +38,34 @@ class reservationAjoue extends Controller
         if ($cpt == 0 ) {
             $cpt=0;
             $enplacement='';
+            $listeatt=0;
+            foreach ($BD as $b) {
             foreach ($Place as $p) {
-            if ($p->nomPlace != null && $p->nomPlace != null && $cpt==0) {
+            if ($p->nomPlace != 'place libre' && $p->nomPlace != $b->nom && $cpt==0) {
                 $enplacement = place::findOrFail($p->id);
                 $cpt++;
             }
-            if($p->id == 30){
-                $file = Utilisateurs::findOrFail($BD->id);
-                foreach ($BD as $b) {
-                if($b->rangfile !=null)
-                        $cpt++;
+            if($p->nomPlace !='place libre'){
+                $listeatt++;
+                if($listeatt> 30){
+                    $file = Utilisateurs::findOrFail($BD[0]->id);
+                    foreach ($BD as $b) {
+                    if($b->rangfile !=null)
+                            $cpt++;
+                    }
+                    $file->rangfile = $cpt;
+                    $file->update(); 
                 }
-                $file->rangfile = $cpt;
-                $file->update(); 
             }
+            }
+
         }
         $enplacement->nomPlace = $BD[0]->nom;
         $enplacement->update(); 
-        historique::create([
-            'nomPlace'=>$BD[0]->nom6,
-            'date_debut' => date('d-m-y h:i:s'),
-            'date_fin'=>null,
+        Historique::create([
+            'nomPlace'=>$BD[0]->nom,
+            'date_debut' => date('d-m-y'),
+            'date_fin'=> date('d-m-y'),
         ]);
         $Place = place::all();
         $cpt=0;
