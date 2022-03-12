@@ -4,18 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Utilisateurs;
-use App\Utilisateur;
 use App\Models\place;
 
-class ajoueReservationAdmin extends Controller
+class validation extends Controller
 {
-    public function retoure(){
+        public function retoure(){
         return redirect('/');
     }
-
-    public function adminInscri()
+        public function adminInscri()
     {
         $Reservation = $_POST['BD'];
+        $nom = $_POST['nom'];
+        $BD = Utilisateurs::where('nom','=', $nom)->get();
+        $enplacement = Utilisateurs::findOrFail($BD[0]->id);
+        $enplacement->valider = 1;
+        $enplacement->update();
         //couper le début de la chaine 
         $substring ='email":';
         $firstIndex = stripos($Reservation, $substring);
@@ -25,11 +28,11 @@ class ajoueReservationAdmin extends Controller
         $firstIndex = stripos($chainDébut, $substring);
         //coupage préci de la chaine 
         $emailFinal = substr($chainDébut, 0,$firstIndex);
-        $BD = Utilisateur::where('email','=', $emailFinal)->get();
+        $BD = Utilisateurs::where('email','=', $emailFinal)->get(); 
         $Place = place::all();
-        $Compte = utilisateurs::all();
+        $Compte = Utilisateurs::all();
         $cpt=0;
         $cptP=0;
         return view('Parking.admin.Admin_Gerer_Inscription',compact('BD','Place','cpt','Compte','cptP'));
-    }                  
+    }
 }

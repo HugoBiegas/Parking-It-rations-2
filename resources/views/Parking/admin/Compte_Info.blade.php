@@ -5,7 +5,7 @@
     <input type="hidden" name="BD" id="BD" value="{{$BD}}">
     <li class="centre"><button class="header">Accueil</button></li>
 </form>
-<form method="POST" action="/reservation">
+<form method="POST" action="/reservation-admin">
   @csrf
     <input type="hidden" name="BD" id="BD" value="{{$BD}}">
     <li class="centre"><button class="header">Reservation</button></li>

@@ -25,10 +25,11 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('mot_de_passe');
             $table->Integer('rangfile')->nullable();
+            $table->boolean('valider')->default(0);
+            $table->string('date_demande')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
-
         $utilisateur = Utilisateurs::create([
             'admin'=>1,
             'email' => 'admin@gmail.com',
@@ -36,6 +37,8 @@ class CreateUsersTable extends Migration
             'prénom' => 'root',
             'nom' => 'admin',
             'ranfile'=>0,
+            'valider'=>1,
+            'date_demande'=>'',
         ]);
         $utilisateur = Utilisateurs::create([
             'admin'=>0,
@@ -44,6 +47,8 @@ class CreateUsersTable extends Migration
             'prénom' => 'root',
             'nom' => 'admin',
             'ranfile'=>1,
+            'valider'=>1,
+            'date_demande'=>'',
         ]);
     }
 

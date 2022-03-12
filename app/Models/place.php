@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class place extends Model
 {
     use HasFactory;
-    protected $fillable = ['nomPlace'];
+    protected $fillable = ['nomPlace','date_debut','date_fin'];
 }

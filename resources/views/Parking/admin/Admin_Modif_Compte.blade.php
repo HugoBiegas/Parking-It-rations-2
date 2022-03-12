@@ -26,10 +26,18 @@
 <div class="carreReservationAdmin">
 		<div id="column1">
 		<p align="center">Modifier réservation</p>
-        <p align="center"><x-input id="Date"  placeholder="date"/></p>
-        <p align="center"><x-input id="palceN"  placeholder="n°place"/></p>
-        <p align="center"><x-input id="DateExpir"  placeholder="Date d'expiration"/></p>
-		<p align="center"><input class="favorite styledLA" type="button" value="Modifier"></p>
+    <form method="POST" action="/Modifier-admin-modif">
+      @csrf
+    @foreach($comptM as $cm)
+    <p align="center" hidden="true"><x-input   name="id"  value="{{$cm->id}}"/></p>
+          <p align="center" hidden="true"><x-input   name="BD"  value="{{$BD}}"/></p>
+        <p align="center"><x-input   name="nom"  value="{{$cm->nom}}"/></p>
+        <p align="center"><x-input   name="prenom"  value="{{$cm->prénom}}"/></p>
+        <p align="center"><x-input  name="email"  value="{{$cm->email}}"/></p>
+    <p align="center"><button><input class="favorite styledLA" type="button" value="Modifier"></button></p>
+    @endforeach      
+    </form>
+
         <form method="POST" action="/reservation-admin">
     @csrf
     <input type="hidden" name="BD" id="BD" value="{{$BD}}">

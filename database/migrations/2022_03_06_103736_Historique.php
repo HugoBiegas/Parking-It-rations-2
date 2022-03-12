@@ -15,9 +15,9 @@ class Historique extends Migration
     {
         Schema::create('Historiques', function (Blueprint $table) {
             $table->id();
-            $table->string('nomPlace');
-            $table->string('date_debut');
-            $table->string('date_fin')->nullable();
+            $table->string('nomPlaceHistorique');
+            $table->string('date_debut_reserve');
+            $table->string('date_fin_reserve')->nullable();
             $table->timestamps();
         });
     }

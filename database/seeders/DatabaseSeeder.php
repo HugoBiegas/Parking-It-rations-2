@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use app\Models\place;
+use app\Models\Utilisateurs;
 
 class DatabaseSeeder extends Seeder
 {

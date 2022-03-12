@@ -5,7 +5,7 @@
     <input type="hidden" name="BD" id="BD" value="{{$BD}}">
     <li class="centre"><button class="header">Accueil</button></li>
 </form>
-<form method="POST" action="/reservation">
+<form method="POST" action="/reservation-admin">
   @csrf
     <input type="hidden" name="BD" id="BD" value="{{$BD}}">
     <li class="centre"><button class="header">Reservation</button></li>
@@ -46,31 +46,109 @@
     <td class="bar">Date expiration</td>
     <td class="bar">Modifier</td>
     <td class="bar">suprimer</td>
+    <td class="bar">valider</td>
   </tr>
-  <tr>
-    <td class="autre">Date réservation</td>
-    <td class="autre">Jack Russell</td>
-    <td class="autre">Poodle</td>
-    <td class="autre">Date réservation</td>
-    <form method="POST" action="/Modifier-admin">
-    @csrf
-    <input type="hidden" name="BD" id="BD" value="{{$BD}}">
-    <td class="autre"><button>Modifier</button></td>
-  </form>
-    <td class="autre">Poodle</td>
-  </tr>
-  <tr>
-    <td >Date réservation</td>
-    <td >N°place</td>
-    <td >16</td>
-    <td >Date réservation</td>
-    <form method="POST" action="/Modifier-admin">
-    @csrf
-    <input type="hidden" name="BD" id="BD" value="{{$BD}}">
-    <td class="autre"><button >Modifier</button></td>
-  </form>
-    <td >16</td>
-  </tr>
+    @foreach($Compte as $C)
+    @if($cpt%2 == 1)
+    <tr>
+      <td class="autre">{{$C->nom}}</td>
+        @foreach($Place as $p)
+          @if($p->nom == $C->nom)
+            <td class="autre">{{$p->date_debut}}</td>
+            <td class="autre">{{$p->id}}</td>
+            <td class="autre">{{$p->date_debut}}</td>
+            <p hidden='true'>{{$cptP++;}}</p>
+          @endif
+        @endforeach
+        @if($cptP==0)
+          <td class="autre"></td>
+          <td class="autre"></td>
+          <td class="autre"> </td>
+        @endif
+        <p hidden='true'>{{$cptP=0;}}</p>
+      <form method="POST" action="/Modifier-admin-compte">
+      @csrf
+      <input type="hidden" name="id" id="id" value="{{$C->id}}">
+      <input type="hidden" name="BD" id="BD" value="{{$BD}}">
+      <td class="autre"><button>Modifier</button></td>
+    </form>
+
+    @if($C->admin == 0)
+      <form method="POST" action="/suprimer-admin">
+      @csrf
+      <input type="hidden" name="id" id="id" value="{{$C->id}}">
+      <input type="hidden" name="BD" id="BD" value="{{$BD}}">
+      <td class="autre"><button>suprimer</button></td>
+    </form>
+      @else
+      <td></td>
+    @endif
+
+    @if($C->valider == 0)
+      <form method="POST" action="/acceptations">
+      @csrf
+      <input type="hidden" name="BD" id="BD" value="{{$BD}}">
+      <input type="hidden" name="nom" id="nom" value="{{$C->nom}}">
+      <td><button class="image"><img src="{{ asset('image/croix.jpg') }}"></button></td><!-- lien ver le compte --> 
+      </form>
+    @else
+      <td ><img src="{{ asset('image/valider.jpg') }}"></td>
+    @endif
+
+    </tr>
+
+    @else
+
+    <tr>
+      <td>{{$C->nom}}</td>
+        @foreach($Place as $p)
+          @if($p->nom == $C->nom)
+            <td >{{$p->date_debut}}</td>
+            <td >{{$p->id}}</td>
+            <td >{{$p->date_debut}}</td>
+            <p hidden='true'>{{$cptP++;}}</p>
+          @endif
+        @endforeach
+        @if($cptP==0)
+          <td></td>
+          <td></td>
+          <td></td>
+        @endif
+        <p hidden='true'>{{$cptP=0;}}</p>
+      <form method="POST" action="/Modifier-admin-compte">
+      @csrf
+      <input type="hidden" name="id" id="id" value="{{$C->id}}">
+      <input type="hidden" name="BD" id="BD" value="{{$BD}}">
+      <td ><button >Modifier</button></td>
+    </form>
+
+    @if($C->admin == 0)
+      <form method="POST" action="/suprimer-admin">
+      @csrf
+      <input type="hidden" name="id" id="id" value="{{$C->id}}">
+      <input type="hidden" name="BD" id="BD" value="{{$BD}}">
+      <td ><button>suprimer</button></td>
+    </form>
+    @else
+      <td></td>
+    @endif
+
+    @if($C->valider == 0)
+      <form method="POST" action="/acceptations">
+      @csrf
+      <input type="hidden" name="BD" id="BD" value="{{$BD}}">
+      <input type="hidden" name="nom" id="nom" value="{{$C->nom}}">
+      <td><button class="image"><img src="{{ asset('image/croix.jpg') }}"></button></td><!-- lien ver le compte --> 
+      </form>
+    @else
+      <td ><img src="{{ asset('image/valider.jpg') }}"></td>
+    @endif
+
+    </tr>
+    @endif
+    <p hidden='true'>{{$cpt++;}}</p>
+
+  @endforeach
 </table>
 
 @endsection

@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Utilisateurs extends Model
 {
-    protected $fillable = ['admin','email', 'mot_de_passe','nom','prénom','rangfile'];
+    protected $fillable = ['admin','email', 'mot_de_passe','nom','prénom','rangfile','valider', 'date_demande'];
 }

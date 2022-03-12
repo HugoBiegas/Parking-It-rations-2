@@ -40,6 +40,7 @@ class InscriptionController extends Controller
             'prénom' => request('prénom'),
             'nom' => request('nom'),
             'rangfile'=>null,
+            'date_demande'=>date('d-m-y'),
         ]);
         return view('Parking.compte.connection');
 

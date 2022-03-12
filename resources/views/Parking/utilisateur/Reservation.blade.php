@@ -39,19 +39,22 @@
 </div>
 <table class="Reservation">
   <tr>
-    <td class="bar">Nom</td>
     <td class="bar">N°place</td>
+    <td class="bar">date début</td>
+    <td class="bar">date fin</td>
   </tr>
-  @foreach($Place as $p)
+  @foreach($histo as $h)
   @if($cpt%2 == 1)
     <tr>
-    <td class="autre">{{$p->nomPlace}}</td>
-    <td class="autre">{{$p->id}}</td>
+    <td class="autre">{{$h->id}}</td>
+    <td class="autre">{{$h->date_debut_reserve}}</td>
+    <td class="autre">{{$h->date_fin_reserve}}</td>
   </tr>    
   @else
   <tr>
-    <td >{{$p->nomPlace}}</td>
-    <td >{{$p->id}}</td>
+    <td >{{$h->id}}</td>
+    <td >{{$h->date_debut_reserve}}</td>
+    <td >{{$h->date_fin_reserve}}</td>
   </tr>  
 @endif
 <p hidden="true">{{$cpt++}}</p>

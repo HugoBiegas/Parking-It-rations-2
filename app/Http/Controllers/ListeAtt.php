@@ -32,11 +32,12 @@ class ListeAtt extends Controller
             $Positions= $p->id;
         }
     }
-    $rang = Utilisateurs::all();
+    $rang = Utilisateurs::where('rangfile','!=', 0)->get();
+
     if($BD[0]->admin == 0){
-        return view('Parking.utilisateur.Liste_Att',['BD' => $BD, 'Place' =>$Place, 'cpt'=>0, 'rang'=>$rang]);
+        return view('Parking.utilisateur.Liste_Att',['BD' => $BD, 'cpt'=>0, 'rang'=>$rang]);
     }else if ($BD[0]->admin == 1) {
-        return view('Parking.utilisateur.Liste_Att',['BD' => $BD, 'Place' =>$Place, 'cpt'=>0, 'rang'=>$rang]);
+        return view('Parking.utilisateur.Liste_Att',['BD' => $BD, 'cpt'=>0, 'rang'=>$rang]);
     }
     return view('Parking.compte.connection');        
     }

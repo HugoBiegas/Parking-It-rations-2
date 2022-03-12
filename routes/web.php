@@ -37,7 +37,7 @@ Route::get('/elu', 'UtilisateursController@listetest');
 
 //Connexion exemple
 Route::get('/', 'ConnexionController@formulaire');
-Route::post('/connexion', 'acueil@redirection');
+Route::post('/connexion', 'ConnexionController@traitement');
 
 /* 
 Valentin : Pas compris à quoi ça sert donc pour l'instant je le mets en commentaire jusqu'à une explication
@@ -86,6 +86,8 @@ Route::post('/page-acueil','acueil@redirection');
 
 
 Route::post('/reservation', 'Reservation@ReservationMiseEnPlace');
+Route::post('/reservation-admin', 'Reservation@ReservationMiseEnPlaceAdmin');
+Route::get('/reservation-admin', 'Reservation@retoure');
 Route::get('/reservation', 'Reservation@retoure');
 
 
@@ -118,3 +120,17 @@ Route::get('/reservation-ajou', 'reservationAjoue@retoure');
 
 Route::post('/suprimer', 'supresion@détruire');
 Route::get('/suprimer', 'supresion@retoure');
+Route::post('/suprimer-admin', 'supresion@suprimerCompte');
+Route::get('/suprimer-admin', 'supresion@retoure');
+
+Route::post('/admin-inscriptions', 'ajoueReservationAdmin@adminInscri');
+Route::get('/admin-inscriptions', 'ajoueReservationAdmin@retoure');
+
+Route::post('/acceptations', 'validation@adminInscri');
+Route::get('/acceptations', 'validation@retoure');
+
+Route::post('/Modifier-admin-compte', 'modifCompte@adminCompteM');
+Route::get('/Modifier-admin-compte', 'modifCompte@retoure');
+
+Route::post('/Modifier-admin-modif', 'modifCompte@adminComptUpdate');
+Route::get('/Modifier-admin-modif', 'modifCompte@retoure');

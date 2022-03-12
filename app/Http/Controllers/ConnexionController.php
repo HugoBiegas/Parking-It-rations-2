@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
-use App\Utilisateur;
+use App\Models\Utilisateurs;
 
 class ConnexionController extends Controller
 {
@@ -17,16 +17,24 @@ class ConnexionController extends Controller
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
-
-        $user = utilisateur::where('email', '=', request()->input('email'))->first();
+        $user = utilisateurs::where('email', '=', request()->input('email'))->get();
             // À faire : vérification que l'email et le mot de passe sont corrects.
+        if(!empty($user)){
             if (!$user) {
                 return view('Parking.compte.connection');
             }
-            if (!Hash::check(request()->input('password'), $user->mot_de_passe)) {
+
+            if (!Hash::check(request('password'), $user[0]->mot_de_passe)) {
                 return view('Parking.compte.connection');
             }
-
-            return route('Parking.Utilisateur_et_admin.aceuil', [ 'email' => request('email')]);
+            if ($user[0]->valider == 0) {
+                return view('Parking.compte.connection');
+            }
+            if ($user[0]->admin == 0)
+                return view('Parking.utilisateur.aceuil', [ 'email' => request('email'), 'BD'=>$user]);
+            else
+                 return view('Parking.admin.Admin-aceuil', [ 'email' => request('email'),'BD'=>$user]);            
+        }
+        return view('Parking.compte.connection');
     }
 }

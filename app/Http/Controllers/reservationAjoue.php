@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\place;
 use App\Models\Utilisateurs;
 use App\Models\Historique;
-use App\Utilisateur;
 
 
 class reservationAjoue extends Controller
@@ -27,53 +26,48 @@ class reservationAjoue extends Controller
         $firstIndex = stripos($chainDébut, $substring);
         //coupage préci de la chaine 
         $emailFinal = substr($chainDébut, 0,$firstIndex);
-        $BD = Utilisateur::where('email','=', $emailFinal)->get();
+        $BD = Utilisateurs::where('email','=', $emailFinal)->get();
+        $Info = place::where('nomPlace','=', 'place libre')->get();
         $Place = place::all();
         $cpt=0;
+        //tester si il as dejat une place
         foreach ($Place as $p) {
-            if ($p->nomPlace == $BD[0]->prénom) {
+            if ($p->nomPlace == $BD[0]->nom) {
                    $cpt++;
-               }   
+               } 
         }
-        if ($cpt == 0 ) {
-            $cpt=0;
-            $enplacement='';
-            $listeatt=0;
-            foreach ($BD as $b) {
-            foreach ($Place as $p) {
-            if ($p->nomPlace != 'place libre' && $p->nomPlace != $b->nom && $cpt==0) {
-                $enplacement = place::findOrFail($p->id);
-                $cpt++;
-            }
-            if($p->nomPlace !='place libre'){
-                $listeatt++;
-                if($listeatt> 30){
-                    $file = Utilisateurs::findOrFail($BD[0]->id);
-                    foreach ($BD as $b) {
-                    if($b->rangfile !=null)
-                            $cpt++;
-                    }
-                    $file->rangfile = $cpt;
-                    $file->update(); 
-                }
-            }
-            }
+        $histo = Historique::where('nomPlaceHistorique','=', $BD[0]->nom)->get();
 
-        }
-        $enplacement->nomPlace = $BD[0]->nom;
-        $enplacement->update(); 
-        Historique::create([
-            'nomPlace'=>$BD[0]->nom,
-            'date_debut' => date('d-m-y'),
-            'date_fin'=> date('d-m-y'),
-        ]);
-        $Place = place::all();
-        $cpt=0;
-        return view('Parking.utilisateur.Reservation',compact('BD','Place','cpt'));                  
-        }  
-        $Place = place::all();
-                $cpt=0; 
+        if ($cpt == 0 ) {
+                $cpt=0;
+                //prise de la place 
+
+            if (!empty($Info)) {
+                $enplacement = place::find($Info[0]->id);
+                $enplacement->nomPlace = $BD[0]->nom;
+                $enplacement->update(); 
+                Historique::create([
+                    'nomPlaceHistorique'=>$BD[0]->nom,
+                    'date_debut_reserve' => date('d-m-y'),
+                    'date_fin_reserve'=> '',
+                ]);
+                return view('Parking.utilisateur.Reservation',compact('BD','histo','cpt'));     
+            }else{
+            //si il y as plus de place
+                $Info = Utilisateurs::where('rangfile','!=', null)->get();
+                foreach ($Info as $I) {
+                    $cpt++;
+                }
+                $enplacement = Utilisateurs::find($BD[0]->id);
+                $enplacement->rangfile = $cpt;
+                $enplacement->date_demande = date('d-m-y');
+                $enplacement->update();
+                $cpt=0;
+                return view('Parking.utilisateur.Reservation',compact('BD','histo','cpt'));
+            }             
+        } 
+        $cpt=0;  
         //afficher un message
-        return view('Parking.utilisateur.Reservation',compact('BD','Place','cpt'));     
+        return view('Parking.utilisateur.Reservation',compact('BD','histo','cpt'));     
     }
 }
