@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Historique extends Model
 {
-    protected $fillable = ['nomPlaceHistorique','date_debut_reserve','date_fin_reserve'];
+    protected $fillable = ['nomPlaceHistorique','date_debut_reserve','date_fin_reserve', 'ProrioActuHisto'];
 }

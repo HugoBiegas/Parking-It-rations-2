@@ -10,6 +10,11 @@
     <input type="hidden" name="BD" id="BD" value="{{$BD}}">
     <li class="centre"><button class="header">Reservation</button></li>
   </form>
+    <form method="POST" action="/historique-admin">
+  @csrf
+    <input type="hidden" name="BD" id="BD" value="{{$BD}}">
+    <li class="centre"><button class="header">historique</button></li>
+  </form>
   <form method="POST" action="/admin-inscriptions">
   @csrf
   <input type="hidden" name="BD" id="BD" value="{{$BD}}">

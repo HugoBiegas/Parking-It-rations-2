@@ -15,6 +15,7 @@ class Historique extends Migration
     {
         Schema::create('Historiques', function (Blueprint $table) {
             $table->id();
+            $table->Integer('ProrioActuHisto');
             $table->string('nomPlaceHistorique');
             $table->string('date_debut_reserve');
             $table->string('date_fin_reserve')->nullable();

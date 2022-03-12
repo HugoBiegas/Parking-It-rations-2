@@ -10,6 +10,11 @@
     <input type="hidden" name="BD" id="BD" value="{{$BD}}">
     <li class="centre"><button class="header">Reservation</button></li>
   </form>
+    <form method="POST" action="/historique-admin">
+  @csrf
+    <input type="hidden" name="BD" id="BD" value="{{$BD}}">
+    <li class="centre"><button class="header">historique</button></li>
+  </form>
   <form method="POST" action="/admin-inscriptions">
   @csrf
   <input type="hidden" name="BD" id="BD" value="{{$BD}}">
@@ -29,8 +34,8 @@
 	<p class="ContentCompte"> Nom: {{$BD[0]->nom}}</p>
 	<p class="ContentCompte"> Prénom: {{$BD[0]->prénom}}</p>
 	<p class="ContentCompte">Adresse e-mail: {{$BD[0]->email}}</p>
-	<p class="ContentCompte"><a href="">Modifier adresse e-mail?</a></p>
-	<p class="ContentCompte"><a href="">Modifier mot de passe?</a></p>
+	<p class="ContentCompte"><a>Modifier adresse e-mail?</a></p>
+	<p class="ContentCompte"><a>Modifier mot de passe?</a></p>
 </div>
 </div>
 @endsection

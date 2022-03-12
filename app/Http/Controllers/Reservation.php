@@ -26,7 +26,7 @@ class Reservation extends Controller
         //coupage préci de la chaine 
         $emailFinal = substr($chainDébut, 0,$firstIndex);
         $BD = Utilisateurs::where('email','=', $emailFinal)->get();
-        $histo = Historique::where('nomPlaceHistorique','=', $BD[0]->nom)->get();;
+        $histo = Historique::where('ProrioActuHisto','=', $BD[0]->id)->get();;
         if($BD[0]->admin == 0){
             return view('Parking.utilisateur.Reservation',['BD' => $BD, 'histo' =>$histo, 'cpt'=>0]);
         }else if ($BD[0]->admin == 1) {

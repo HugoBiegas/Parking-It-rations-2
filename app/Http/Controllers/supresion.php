@@ -36,11 +36,9 @@ class supresion extends Controller
         //id de la personne 
         $id = substr($chainDébut, 0,$firstIndex);
         $place = place::find($id);
-        $histo = Historique::find($place->nom);
-        if ($histo != null) {
-            $histo->date_fin_reserve = date('d-m-y');
-            $histo->update();
-        }
+        $histo = Historique::find($place->nomPlace);
+        $histo->date_fin_reserve = date('d-m-y');
+        $histo->update();
         $place->nomPlace  ='place libre';
         $place->date_debut  ='';
         $place->date_fin  ='';

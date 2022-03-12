@@ -98,16 +98,6 @@ Route::get('/liste-attente', 'ListeAtt@retoure');
 Route::post('/compte', 'Compte@CompteLoad');
 Route::get('/compte', 'Compte@retoure');
 
-Route::get('/reservation-admin', function () {
-    return view('Parking.admin.Admin_Réservation');
-});
-Route::get('/liste-attente-admin', function () {
-    return view('Parking.utilisateur.Liste_Att');
-});
-
-Route::get('/Compte-admin', function () {
-    return view('Parking.Utilisateur_et_admin.Compte_Info');
-});
 
 Route::post('/Modifier-admin', 'ModifReservation@ModifReser');
 Route::get('/Modifier-admin', 'ModifReservation@retoure');
@@ -134,3 +124,6 @@ Route::get('/Modifier-admin-compte', 'modifCompte@retoure');
 
 Route::post('/Modifier-admin-modif', 'modifCompte@adminComptUpdate');
 Route::get('/Modifier-admin-modif', 'modifCompte@retoure');
+
+Route::post('/historique-admin', 'historiqueControleur@historique');
+Route::get('/historique-admin', 'historiqueControleur@retoure');

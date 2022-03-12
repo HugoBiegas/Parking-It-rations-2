@@ -13,7 +13,7 @@
     <form method="POST" action="/historique-admin">
   @csrf
     <input type="hidden" name="BD" id="BD" value="{{$BD}}">
-    <li class="centre"><button class="header">historique</button></li>
+    <li class="centre"><button class="headerActife">historique</button></li>
   </form>
   <form method="POST" action="/admin-inscriptions">
   @csrf
@@ -26,20 +26,35 @@
   <li><button class="image"><img src="{{ asset('image/compte.jpg') }}"></button></li><!-- lien ver le compte --> 
     </form>
   <li><a href="/"><img src="{{ asset('image/deconection.jpg') }}" href="active"></a></li><!-- lien pour se déconecter --> 
+ 
 @endsection
 @section('contenu')
-<div class="carreReservationAdmin">
-		<div id="column1">
-		<p align="center">Modifier réservation</p>
-        <p align="center"><x-input id="Date"  placeholder="date"/></p>
-        <p align="center"><x-input id="palceN"  placeholder="n°place"/></p>
-        <p align="center"><x-input id="DateExpir"  placeholder="Date d'expiration"/></p>
-		<p align="center"><input class="favorite styledLA" type="button" value="Modifier"></p>
-        <form method="POST" action="/reservation-admin">
-    @csrf
-    <input type="hidden" name="BD" id="BD" value="{{$BD}}">
-    <td class="autre"><button >Retour</button></td>
-  </form>
-	    </div>
-</div>
+
+<table class="Reservation">
+  <tr>
+    <td class="bar">N°place</td>
+    <td class="bar">N°personne reserver</td>
+    <td class="bar">date début</td>
+    <td class="bar">date fin</td>
+  </tr>
+  @foreach($histo as $h)
+  @if($cpt%2 == 1)
+    <tr>
+    <td class="autre">{{$h->nomPlaceHistorique}}</td>
+    <td class="autre">{{$h->ProrioActuHisto}}</td>
+    <td class="autre">{{$h->date_debut_reserve}}</td>
+    <td class="autre">{{$h->date_fin_reserve}}</td>
+  </tr>    
+  @else
+  <tr>
+    <td >{{$h->nomPlaceHistorique}}</td>
+    <td >{{$h->ProrioActuHisto}}</td>
+    <td >{{$h->date_debut_reserve}}</td>
+    <td >{{$h->date_fin_reserve}}</td>
+  </tr>  
+@endif
+<p hidden="true">{{$cpt++}}</p>
+@endforeach
+</table>
+
 @endsection

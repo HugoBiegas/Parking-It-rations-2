@@ -17,10 +17,9 @@ class ConnexionController extends Controller
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
-        $user = utilisateurs::where('email', '=', request()->input('email'))->get();
+        $user = utilisateurs::where('email', '=', request('email'))->get();
             // À faire : vérification que l'email et le mot de passe sont corrects.
-        if(!empty($user)){
-            if (!$user) {
+            if ($user->isEmpty()) {
                 return view('Parking.compte.connection');
             }
 
@@ -34,7 +33,7 @@ class ConnexionController extends Controller
                 return view('Parking.utilisateur.aceuil', [ 'email' => request('email'), 'BD'=>$user]);
             else
                  return view('Parking.admin.Admin-aceuil', [ 'email' => request('email'),'BD'=>$user]);            
-        }
+
         return view('Parking.compte.connection');
     }
 }

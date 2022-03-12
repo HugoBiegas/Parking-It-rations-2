@@ -10,6 +10,11 @@
     <input type="hidden" name="BD" id="BD" value="{{$BD}}">
     <li class="centre"><button class="header">Reservation</button></li>
   </form>
+    <form method="POST" action="/historique-admin">
+  @csrf
+    <input type="hidden" name="BD" id="BD" value="{{$BD}}">
+    <li class="centre"><button class="header">historique</button></li>
+  </form>
   <form method="POST" action="/admin-inscriptions">
   @csrf
   <input type="hidden" name="BD" id="BD" value="{{$BD}}">
@@ -66,14 +71,14 @@
           <td class="autre"> </td>
         @endif
         <p hidden='true'>{{$cptP=0;}}</p>
-      <form method="POST" action="/Modifier-admin-compte">
+
+    @if($C->admin == 0)
+          <form method="POST" action="/Modifier-admin-compte">
       @csrf
       <input type="hidden" name="id" id="id" value="{{$C->id}}">
       <input type="hidden" name="BD" id="BD" value="{{$BD}}">
       <td class="autre"><button>Modifier</button></td>
     </form>
-
-    @if($C->admin == 0)
       <form method="POST" action="/suprimer-admin">
       @csrf
       <input type="hidden" name="id" id="id" value="{{$C->id}}">
@@ -82,6 +87,8 @@
     </form>
       @else
       <td></td>
+      <td></td>
+
     @endif
 
     @if($C->valider == 0)
@@ -115,14 +122,14 @@
           <td></td>
         @endif
         <p hidden='true'>{{$cptP=0;}}</p>
-      <form method="POST" action="/Modifier-admin-compte">
+
+    @if($C->admin == 0)
+          <form method="POST" action="/Modifier-admin-compte">
       @csrf
       <input type="hidden" name="id" id="id" value="{{$C->id}}">
       <input type="hidden" name="BD" id="BD" value="{{$BD}}">
       <td ><button >Modifier</button></td>
     </form>
-
-    @if($C->admin == 0)
       <form method="POST" action="/suprimer-admin">
       @csrf
       <input type="hidden" name="id" id="id" value="{{$C->id}}">
@@ -130,6 +137,7 @@
       <td ><button>suprimer</button></td>
     </form>
     @else
+      <td></td>
       <td></td>
     @endif
 

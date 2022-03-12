@@ -42,6 +42,7 @@
     <td class="bar">N°place</td>
     <td class="bar">date début</td>
     <td class="bar">date fin</td>
+    <td class="bar">anulations</td>
   </tr>
   @foreach($histo as $h)
   @if($cpt%2 == 1)
@@ -49,12 +50,22 @@
     <td class="autre">{{$h->id}}</td>
     <td class="autre">{{$h->date_debut_reserve}}</td>
     <td class="autre">{{$h->date_fin_reserve}}</td>
+    @if($h->date_fin_reserve > date('d-m-y'))
+      <td class="autre"><button>annuler</button></td>
+      @else
+      <td>dejat fini</td>
+    @endif
   </tr>    
   @else
   <tr>
     <td >{{$h->id}}</td>
     <td >{{$h->date_debut_reserve}}</td>
     <td >{{$h->date_fin_reserve}}</td>
+    @if($h->date_fin_reserve > date('d-m-y'))
+      <td><button>annuler</button></td>
+      @else
+      <td>dejat fini</td>
+    @endif
   </tr>  
 @endif
 <p hidden="true">{{$cpt++}}</p>

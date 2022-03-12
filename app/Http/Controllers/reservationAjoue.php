@@ -27,31 +27,35 @@ class reservationAjoue extends Controller
         //coupage préci de la chaine 
         $emailFinal = substr($chainDébut, 0,$firstIndex);
         $BD = Utilisateurs::where('email','=', $emailFinal)->get();
-        $Info = place::where('nomPlace','=', 'place libre')->get();
+        $Info = place::where('ProrioActu','=', 0)->get();
         $Place = place::all();
         $cpt=0;
         //tester si il as dejat une place
         foreach ($Place as $p) {
-            if ($p->nomPlace == $BD[0]->nom) {
+            if ($p->ProrioActu == $BD[0]->id) {
                    $cpt++;
                } 
         }
-        $histo = Historique::where('nomPlaceHistorique','=', $BD[0]->nom)->get();
-
+        $histo = Historique::where('nomPlaceHistorique','=', $BD[0]->id)->get();
         if ($cpt == 0 ) {
                 $cpt=0;
                 //prise de la place 
 
-            if (!empty($Info)) {
+            if (!$Info->isEmpty()) {
                 $enplacement = place::find($Info[0]->id);
-                $enplacement->nomPlace = $BD[0]->nom;
+                $enplacement->ProrioActu = $BD[0]->id;
+                $enplacement->date_debut = date('d-m-y');
+                $enplacement->date_fin = date('d-m-y', strtotime('+7 days'));
                 $enplacement->update(); 
                 Historique::create([
-                    'nomPlaceHistorique'=>$BD[0]->nom,
+                    'ProrioActuHisto'=>$BD[0]->id,
+                    'nomPlaceHistorique'=>$enplacement->nomPlace,
                     'date_debut_reserve' => date('d-m-y'),
-                    'date_fin_reserve'=> '',
+                    'date_fin_reserve'=> date('d-m-y', strtotime('+7 days')),
                 ]);
-                return view('Parking.utilisateur.Reservation',compact('BD','histo','cpt'));     
+                $histo = Historique::where('ProrioActuHisto','=', $BD[0]->id)->get();
+                return view('Parking.utilisateur.Reservation',compact('BD','histo','cpt'));   
+
             }else{
             //si il y as plus de place
                 $Info = Utilisateurs::where('rangfile','!=', null)->get();
@@ -59,7 +63,7 @@ class reservationAjoue extends Controller
                     $cpt++;
                 }
                 $enplacement = Utilisateurs::find($BD[0]->id);
-                $enplacement->rangfile = $cpt;
+                $enplacement->rangfile = $cpt+1;
                 $enplacement->date_demande = date('d-m-y');
                 $enplacement->update();
                 $cpt=0;

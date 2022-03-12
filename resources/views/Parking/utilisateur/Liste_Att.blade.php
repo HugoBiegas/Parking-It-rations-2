@@ -23,28 +23,24 @@
   <li><a href="/"><img src="{{ asset('image/deconection.jpg') }}" href="active"></a></li><!-- lien pour se déconecter --> 
 @endsection
 @section('contenu')
-<div class="carreReservation">
-    <div id="column1">
-    <h1 align="center">Voir ma position sur la liste d’attente</h1> 
-    <p align="center">Saisissez votre identifiant</p>
-    <x-input id="Nom" class="block mt-1 w-full identifient" />
-    <p align="center"><input class="favorite styledLA" type="button"value="Regarder"></p>
-    </div>
-</div>
-<p class="nom">Vous êtes <strong>N°{{$BD[0]->rangfile}}</strong> sur 30 dans la liste d'attente</p>
+<p class="nom">Vous êtes <strong>N°{{$BD[0]->rangfile}}</strong> dans la liste d'attente</p>
+<button>annuler</button>
 <table class="Liste">
   <tr> 
     <td class="bar">Nom</td>
+    <td class="bar">Positions list attente</td>
     <td class="bar">Date Demande réservation</td>
   </tr>
   @foreach($rang as $g)
   @if($cpt%2 == 1)
     <tr>
+    <td class="autre">{{$g->nom}}</td>
     <td class="autre">{{$g->rangfile}}</td>
     <td class="autre">{{$g->date_demande}}</td>
   </tr>    
   @else
   <tr>
+    <td >{{$g->nom}}</td>
     <td >{{$g->rangfile}}</td>
     <td >{{$g->date_demande}}</td>
   </tr>  
