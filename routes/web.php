@@ -127,3 +127,15 @@ Route::get('/Modifier-admin-modif', 'modifCompte@retoure');
 
 Route::post('/historique-admin', 'historiqueControleur@historique');
 Route::get('/historique-admin', 'historiqueControleur@retoure');
+
+Route::post('/ajoue-compte-admin', 'Compte@ajouteCompte');
+Route::get('/ajoue-compte-admin', 'Compte@retoure');
+
+Route::post('/reservation-ajou-admin', 'ajoueReservationAdmin@ajouteReserve');
+Route::get('/reservation-ajou-admin', 'ajoueReservationAdmin@retoure');
+
+Route::post('/anule-reserve', 'supresion@anuleReserve');
+Route::get('/anule-reserve', 'supresion@retoure');
+
+Route::post('/liste-attente-anule', 'supresion@anuleListeATT');
+Route::get('/liste-attente-anule', 'supresion@retoure');

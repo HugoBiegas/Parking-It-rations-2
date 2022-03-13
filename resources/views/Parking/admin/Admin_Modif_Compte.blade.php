@@ -39,7 +39,7 @@
         <p align="center"><x-input   name="nom"  value="{{$cm->nom}}"/></p>
         <p align="center"><x-input   name="prenom"  value="{{$cm->prénom}}"/></p>
         <p align="center"><x-input  name="email"  value="{{$cm->email}}"/></p>
-    <p align="center"><button><input class="favorite styledLA" type="button" value="Modifier"></button></p>
+    <p align="center"><button>Modifier</button></p>
     @endforeach      
     </form>
 

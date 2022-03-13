@@ -31,14 +31,15 @@
 <div class="carreReservationAdmin">
     <div id="column1">
     <p align="center">Créer un compte</p>
-    <form action="POST" action="/reservation">
+    <form method="POST" action="/ajoue-compte-admin">
       @csrf
-        <p align="center"><x-input id="identifiant"  placeholder="identifiant" required /></p>
-        <p align="center"><x-input id="nom"  placeholder="nom" required /></p>
-        <p align="center"><x-input id="prenom"  placeholder="prenom" required/></p>
-        <p align="center"><x-input id="adresse e-mail"  placeholder="adresse e-mail" required/></p>
-        <p align="center"><x-input id="Mot de passe"  placeholder="Mot de passe" required/></p>
-    <p align="center"><input class="favorite styledLA" type="button" value="ajouter"></p>      
+        <input type="hidden" name="BD" id="BD" value="{{$BD}}">
+        <p align="center"><x-input name="admin" id="admin" type="number" max="1" min="0" placeholder="admin" required /></p>
+        <p align="center"><x-input name="nom" id="nom"  placeholder="nom" required /></p>
+        <p align="center"><x-input name="prenom" id="prenom"  placeholder="prenom" required/></p>
+        <p align="center"><x-input name="email" id="email" class="block mt-1 w-full" type="email" placeholder="adresse e-mail" required/></p>
+        <p align="center"><x-input name="MDP" id="MDP"  class="block mt-1 w-full" type="password" placeholder="Mot de passe" required/></p>
+    <p align="center"><button>ajouter</button></p>      
     </form>
 
       </div>
@@ -46,9 +47,6 @@
 <table class="AdminReserve">
   <tr> 
     <td class="bar">Nom</td>
-    <td class="bar">Date réservation</td>
-    <td class="bar">N°place</td>
-    <td class="bar">Date expiration</td>
     <td class="bar">Modifier</td>
     <td class="bar">suprimer</td>
     <td class="bar">valider</td>
@@ -57,23 +55,8 @@
     @if($cpt%2 == 1)
     <tr>
       <td class="autre">{{$C->nom}}</td>
-        @foreach($Place as $p)
-          @if($p->nom == $C->nom)
-            <td class="autre">{{$p->date_debut}}</td>
-            <td class="autre">{{$p->id}}</td>
-            <td class="autre">{{$p->date_debut}}</td>
-            <p hidden='true'>{{$cptP++;}}</p>
-          @endif
-        @endforeach
-        @if($cptP==0)
-          <td class="autre"></td>
-          <td class="autre"></td>
-          <td class="autre"> </td>
-        @endif
-        <p hidden='true'>{{$cptP=0;}}</p>
-
     @if($C->admin == 0)
-          <form method="POST" action="/Modifier-admin-compte">
+      <form method="POST" action="/Modifier-admin-compte">
       @csrf
       <input type="hidden" name="id" id="id" value="{{$C->id}}">
       <input type="hidden" name="BD" id="BD" value="{{$BD}}">
@@ -88,7 +71,6 @@
       @else
       <td></td>
       <td></td>
-
     @endif
 
     @if($C->valider == 0)
@@ -101,28 +83,10 @@
     @else
       <td ><img src="{{ asset('image/valider.jpg') }}"></td>
     @endif
-
     </tr>
-
     @else
-
     <tr>
       <td>{{$C->nom}}</td>
-        @foreach($Place as $p)
-          @if($p->nom == $C->nom)
-            <td >{{$p->date_debut}}</td>
-            <td >{{$p->id}}</td>
-            <td >{{$p->date_debut}}</td>
-            <p hidden='true'>{{$cptP++;}}</p>
-          @endif
-        @endforeach
-        @if($cptP==0)
-          <td></td>
-          <td></td>
-          <td></td>
-        @endif
-        <p hidden='true'>{{$cptP=0;}}</p>
-
     @if($C->admin == 0)
           <form method="POST" action="/Modifier-admin-compte">
       @csrf

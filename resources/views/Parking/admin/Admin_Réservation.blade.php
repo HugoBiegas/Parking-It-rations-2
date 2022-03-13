@@ -32,11 +32,11 @@
 		<div id="column1">
 		<p align="center">Faire une réservation</p>
     <form method="POST" action="/reservation-ajou-admin" >
-        <p align="center"><x-input id="Date"  placeholder="date" required/></p>
-        <p align="center"><x-input id="palceN"  placeholder="n°place" required/></p>
-        <p align="center"><x-input id="DateExpir"  placeholder="Date d'expiration" required/></p>      
-
-    <p align="center"><button><input class="favorite styledLA" type="button" value="ajouter"></button></p>
+      @csrf
+        <input type="hidden" name="BD" id="BD" value="{{$BD}}">
+        <p align="center"><x-input name="personne" id="personne" type='number' max="{{$nb}}" min="1" placeholder="Id personne" required/></p>
+        <p align="center"><x-input name="palceN" id="palceN" type='number' max="30" min="1" placeholder="n°place" required/></p>
+    <p align="center"><button>ajouter</button></p>
     </form>
 	    </div>
 </div>

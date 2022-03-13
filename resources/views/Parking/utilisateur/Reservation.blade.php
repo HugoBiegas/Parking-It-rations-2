@@ -30,16 +30,13 @@
     <form method="POST" action="/reservation-ajou">
       @csrf    
       <input type="hidden" name="BD" id="BD" value="{{$BD}}">
-      <p align="center"><button><input class="favorite styled"
-       type="button"
-       value="Réserver">
-     </button></p>
+      <p align="center"><button>Reserver</button></p>
     </form >
     </div>
 </div>
 <table class="Reservation">
   <tr>
-    <td class="bar">N°place</td>
+    <td class="bar">NomPlace</td>
     <td class="bar">date début</td>
     <td class="bar">date fin</td>
     <td class="bar">anulations</td>
@@ -47,22 +44,33 @@
   @foreach($histo as $h)
   @if($cpt%2 == 1)
     <tr>
-    <td class="autre">{{$h->id}}</td>
+    <td class="autre">{{$h->nomPlaceHistorique}}</td>
     <td class="autre">{{$h->date_debut_reserve}}</td>
     <td class="autre">{{$h->date_fin_reserve}}</td>
     @if($h->date_fin_reserve > date('d-m-y'))
-      <td class="autre"><button>annuler</button></td>
+      <form method="POST" action="/anule-reserve">
+        @csrf
+      <input type="hidden" name="Histo" id="Histo" value="{{$h}}">
+      <input type="hidden" name="BD" id="BD" value="{{$BD}}">
+      <td class="autre"><button>annuler</button></td>        
+      </form>
       @else
       <td>dejat fini</td>
     @endif
   </tr>    
   @else
   <tr>
-    <td >{{$h->id}}</td>
+    <td >{{$h->nomPlaceHistorique}}</td>
     <td >{{$h->date_debut_reserve}}</td>
     <td >{{$h->date_fin_reserve}}</td>
     @if($h->date_fin_reserve > date('d-m-y'))
-      <td><button>annuler</button></td>
+      <form method="POST" action="/anule-reserve">
+        @csrf
+      <input type="hidden" name="Histo" id="Histo" value="{{$h}}">
+      <input type="hidden" name="BD" id="BD" value="{{$BD}}">
+      <td><button>annuler</button></td>        
+      </form>
+
       @else
       <td>dejat fini</td>
     @endif

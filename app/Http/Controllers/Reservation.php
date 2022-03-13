@@ -48,10 +48,15 @@ class Reservation extends Controller
         $emailFinal = substr($chainDébut, 0,$firstIndex);
         $BD = Utilisateurs::where('email','=', $emailFinal)->get();
         $Place = place::all();
+        $personne = Utilisateurs::all();
+        $nb=0;
+        foreach ($personne as $p) {
+            $nb++;
+        }
         if($BD[0]->admin == 0){
-            return view('Parking.utilisateur.Reservation',['BD' => $BD, 'Place' =>$Place, 'cpt'=>0]);
+            return view('Parking.utilisateur.Reservation',['BD' => $BD, 'Place' =>$Place, 'cpt'=>0,'nb'=>$nb]);
         }else if ($BD[0]->admin == 1) {
-            return view('Parking.admin.Admin_Réservation',['BD' => $BD,'Place' =>$Place, 'cpt'=>0]);
+            return view('Parking.admin.Admin_Réservation',['BD' => $BD,'Place' =>$Place, 'cpt'=>0,'nb'=>$nb]);
         }
         return view('Parking.compte.connection');
     }

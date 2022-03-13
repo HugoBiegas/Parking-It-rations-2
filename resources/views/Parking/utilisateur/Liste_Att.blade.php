@@ -24,7 +24,13 @@
 @endsection
 @section('contenu')
 <p class="nom">Vous êtes <strong>N°{{$BD[0]->rangfile}}</strong> dans la liste d'attente</p>
-<button>annuler</button>
+<form method="POST" action="/liste-attente-anule">
+  @csrf
+  <input type="hidden" name="BD" id="BD" value="{{$BD}}">
+  <button>annuler</button>
+  
+</form>
+
 <table class="Liste">
   <tr> 
     <td class="bar">Nom</td>

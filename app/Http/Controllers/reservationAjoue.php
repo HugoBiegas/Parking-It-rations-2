@@ -36,7 +36,7 @@ class reservationAjoue extends Controller
                    $cpt++;
                } 
         }
-        $histo = Historique::where('nomPlaceHistorique','=', $BD[0]->id)->get();
+        $histo = Historique::where('ProrioActuHisto','=', $BD[0]->id)->get();
         if ($cpt == 0 ) {
                 $cpt=0;
                 //prise de la place 
