@@ -8,7 +8,7 @@
 <form method="POST" action="/reservation">
   @csrf
     <input type="hidden" name="BD" id="BD" value="{{$BD}}">
-    <li class="centre"><button class="headerActife">Reservation</button></li>
+    <li class="centre"><button class="headerActife">Réservation</button></li>
   </form>
   <form method="POST" action="/liste-attente">
   @csrf
@@ -18,9 +18,9 @@
   <form method="POST" action="/compte">
   @csrf
   <input type="hidden" name="BD" id="BD" value="{{$BD}}">
-  <li><button class="image"><img src="{{ asset('image/compte.jpg') }}"></button></li><!-- lien ver le compte --> 
+  <li class="centre"><button class="header">Compte</button></li><!-- lien ver le compte --> 
     </form>
-  <li><a href="/"><img src="{{ asset('image/deconection.jpg') }}" href="active"></a></li><!-- lien pour se déconecter --> 
+  <li class="deco"><a href="/"><img src="{{ "https://img.icons8.com/ios/50/000000/logout-rounded-up.png" }}" href="active"></a></li><!-- lien pour se déconecter --> 
 @endsection
 @section('contenu')
 <div class="carreReservation">
@@ -30,16 +30,16 @@
     <form method="POST" action="/reservation-ajou">
       @csrf    
       <input type="hidden" name="BD" id="BD" value="{{$BD}}">
-      <p align="center"><button>Reserver</button></p>
+      <p align="center"><button>Réserver</button></p>
     </form >
     </div>
 </div>
 <table class="Reservation">
   <tr>
     <td class="bar">NomPlace</td>
-    <td class="bar">date début</td>
-    <td class="bar">date fin</td>
-    <td class="bar">anulations</td>
+    <td class="bar">Date début</td>
+    <td class="bar">Date fin</td>
+    <td class="bar">Annuler</td>
   </tr>
   @foreach($histo as $h)
   @if($cpt%2 == 1)

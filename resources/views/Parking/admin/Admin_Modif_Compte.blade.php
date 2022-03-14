@@ -8,24 +8,24 @@
 <form method="POST" action="/reservation-admin">
   @csrf
     <input type="hidden" name="BD" id="BD" value="{{$BD}}">
-    <li class="centre"><button class="header">Reservation</button></li>
+    <li class="centre"><button class="header">Réservation</button></li>
   </form>
     <form method="POST" action="/historique-admin">
   @csrf
     <input type="hidden" name="BD" id="BD" value="{{$BD}}">
-    <li class="centre"><button class="header">historique</button></li>
+    <li class="centre"><button class="header">Historique</button></li>
   </form>
   <form method="POST" action="/admin-inscriptions">
   @csrf
   <input type="hidden" name="BD" id="BD" value="{{$BD}}">
-  <li><button class="image"><img src="{{ asset('image/admin.jpg') }}"></button></li><!-- lien ver le compte --> 
+  <li class="centre"><button class="header">Paramètre compte</button></li></button></li><!-- lien ver le compte --> 
     </form>
   <form method="POST" action="/compte">
   @csrf
   <input type="hidden" name="BD" id="BD" value="{{$BD}}">
-  <li><button class="image"><img src="{{ asset('image/compte_info.jpg') }}"></button></li><!-- lien ver le compte --> 
+  <li class="centre"><button class="header">Compte</button></li><!-- lien ver le compte --> 
     </form>
-  <li><a href="/"><img src="{{ asset('image/deconection.jpg') }}" href="active"></a></li><!-- lien pour se déconecter --> 
+  <li class="deco"><a href="/"><img src="{{ "https://img.icons8.com/ios/50/000000/logout-rounded-up.png"  }}" href="active"></a></li><!-- lien pour se déconecter --> 
 @endsection
 @section('contenu')
 <div class="carreReservationAdmin">

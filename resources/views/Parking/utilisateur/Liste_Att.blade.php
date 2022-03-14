@@ -8,7 +8,7 @@
 <form method="POST" action="/reservation">
   @csrf
     <input type="hidden" name="BD" id="BD" value="{{$BD}}">
-    <li class="centre"><button class="header">Reservation</button></li>
+    <li class="centre"><button class="header">Réservation</button></li>
   </form>
   <form method="POST" action="/liste-attente">
   @csrf
@@ -18,24 +18,24 @@
   <form method="POST" action="/compte">
   @csrf
   <input type="hidden" name="BD" id="BD" value="{{$BD}}">
-  <li><button class="image"><img src="{{ asset('image/compte.jpg') }}"></button></li><!-- lien ver le compte --> 
+  <li class="centre"><button class="header">Compte</button></li><!-- lien ver le compte --> 
     </form>
-  <li><a href="/"><img src="{{ asset('image/deconection.jpg') }}" href="active"></a></li><!-- lien pour se déconecter --> 
+  <li class="deco"><a href="/"><img src="{{ "https://img.icons8.com/ios/50/000000/logout-rounded-up.png" }}" href="active"></a></li><!-- lien pour se déconecter --> 
 @endsection
 @section('contenu')
 <p class="nom">Vous êtes <strong>N°{{$BD[0]->rangfile}}</strong> dans la liste d'attente</p>
 <form method="POST" action="/liste-attente-anule">
   @csrf
   <input type="hidden" name="BD" id="BD" value="{{$BD}}">
-  <button>annuler</button>
+  <button class="center">annuler ma réservation</button>
   
 </form>
 
 <table class="Liste">
   <tr> 
     <td class="bar">Nom</td>
-    <td class="bar">Positions list attente</td>
-    <td class="bar">Date Demande réservation</td>
+    <td class="bar">Position liste d'attente</td>
+    <td class="bar">Date demande réservation</td>
   </tr>
   @foreach($rang as $g)
   @if($cpt%2 == 1)

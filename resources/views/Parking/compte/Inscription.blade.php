@@ -21,13 +21,13 @@
 
             <!-- Name -->
             <div>
-                <x-label for="nom" :value="__('nom')" />
+                <x-label for="nom" :value="__('Nom')" />
 
                 <x-input id="nom" class="block mt-1 w-full" type="text" name="nom" :value="old('nom')" required autofocus />
             </div>
             <!-- prénom -->
             <div>
-                <x-label for="prénom" :value="__('prénom')" />
+                <x-label for="prénom" :value="__('Prénom')" />
 
                 <x-input id="prénom" class="block mt-1 w-full" type="text" name="prénom" :value="old('prénom')" required autofocus />
             </div>
@@ -41,7 +41,7 @@
 
             <!-- Password -->
             <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+                <x-label for="password" :value="__('Mot de passe')" />
 
                 <x-input id="password" class="block mt-1 w-full"
                                 type="password"
@@ -51,7 +51,7 @@
 
             <!-- Confirm Password -->
             <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
+                <x-label for="password_confirmation" :value="__('Confirmer mot de passe')" />
 
                 <x-input id="password_confirmation" class="block mt-1 w-full"
                                 type="password"
@@ -60,11 +60,11 @@
 
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="/">
-                    {{ __('vous avez dejat un compt?') }}
+                    {{ __('Déjà un compte?') }}
                 </a>
 
                 <x-button class="ml-4">
-                    {{ __('Register') }}
+                    {{ __('Inscription') }}
                 </x-button>
             </div>
         </form>

@@ -8,24 +8,24 @@
 <form method="POST" action="/reservation-admin">
   @csrf
     <input type="hidden" name="BD" id="BD" value="{{$BD}}">
-    <li class="centre"><button class="headerActife">Reservation</button></li>
+    <li class="centre"><button class="headerActife">Réservation</button></li>
   </form>
     <form method="POST" action="/historique-admin">
   @csrf
     <input type="hidden" name="BD" id="BD" value="{{$BD}}">
-    <li class="centre"><button class="header">historique</button></li>
+    <li class="centre"><button class="header">Historique</button></li>
   </form>
   <form method="POST" action="/admin-inscriptions">
   @csrf
   <input type="hidden" name="BD" id="BD" value="{{$BD}}">
-  <li><button class="image"><img src="{{ asset('image/admin.jpg') }}"></button></li><!-- lien ver le compte --> 
+  <li class="centre"><button class="header">Paramètre compte</button></li><!-- lien ver le compte --> 
     </form>
   <form method="POST" action="/compte">
   @csrf
   <input type="hidden" name="BD" id="BD" value="{{$BD}}">
-  <li><button class="image"><img src="{{ asset('image/compte.jpg') }}"></button></li><!-- lien ver le compte --> 
+  <li class="centre"><button class="header">Compte</button></li><!-- lien ver le compte --> 
     </form>
-  <li><a href="/"><img src="{{ asset('image/deconection.jpg') }}" href="active"></a></li><!-- lien pour se déconecter --> 
+  <li class="deco"><a href="/"><img src="{{ "https://img.icons8.com/ios/50/000000/logout-rounded-up.png"  }}" href="active"></a></li><!-- lien pour se déconecter --> 
 @endsection
 @section('contenu')
 <div class="carreReservationAdmin">
@@ -46,7 +46,7 @@
     <td class="bar">Date réservation</td>
     <td class="bar">N°place</td>
     <td class="bar">Date expiration</td>
-    <td class="bar">suprimer</td>
+    <td class="bar">Supprimer</td>
   </tr>
   @foreach($Place as $p)
   @if($cpt%2 == 1)
@@ -60,10 +60,10 @@
     @csrf
     <input type="hidden" name="place" id="place" value="{{$p}}">
     <input type="hidden" name="BD" id="BD" value="{{$BD}}">
-    <td class="autre"><button>suprimer</button></td>
+    <td class="autre"><button>supprimer</button></td>
   </form>
       @else
-    <td class="autre">imposible</td>
+    <td class="autre">impossible</td>
     @endif
   </tr>
 @else
@@ -77,7 +77,7 @@
     @csrf
     <input type="hidden" name="place" id="place" value="{{$p}}">
     <input type="hidden" name="BD" id="BD" value="{{$BD}}">
-    <td class="autre"><button >suprimer</button></td>
+    <td class="autre"><button >supprimer</button></td>
   </form>
     @else
     <td>imposible</td>

@@ -34,11 +34,12 @@ li.centre{
 }
 
 li a.active {
-    color: #4CAF50;
+    color: #ce342f;
     text-decoration: underline;
 }
   .carre{
-   margin-top: 200px;
+   margin-top: 150px;
+   padding-bottom: 5%%;
    margin-left: 550px;
    display: flex;
    position: relative;
@@ -53,7 +54,7 @@ li a.active {
    display: flex;
    position: relative;
    width:800px;
-   height:500px;
+   height:auto;
    background:#FFFFFF;
    border-bottom-right-radius : 20px 20px;
    border-bottom-left-radius: 20px 20px;
@@ -66,7 +67,7 @@ div.contenu {
 }
 div.contenuFP {
   padding: 20px;
-  margin-top: 120px;
+  
   margin-left: 250px;
 
 }
