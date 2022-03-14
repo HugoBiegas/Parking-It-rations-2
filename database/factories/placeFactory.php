@@ -14,6 +14,7 @@ class placeFactory extends Factory
     public function definition()
     {
         return [
+            'ProrioActu'=>0,
             'nomPlace'=>"place libre",
         ];
     }
