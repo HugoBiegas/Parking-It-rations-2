@@ -80,7 +80,7 @@
     <td class="autre"><button >supprimer</button></td>
   </form>
     @else
-    <td>imposible</td>
+    <td>impossible</td>
     @endif
   </tr>
   @endif
