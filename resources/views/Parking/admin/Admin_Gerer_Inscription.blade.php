@@ -48,7 +48,7 @@
   <tr> 
     <td class="bar">Nom</td>
     <td class="bar">Modifier</td>
-    <td class="bar">suprimer</td>
+    <td class="bar">Supprimer</td>
     <td class="bar">valider</td>
   </tr>
     @foreach($Compte as $C)
@@ -66,7 +66,7 @@
       @csrf
       <input type="hidden" name="id" id="id" value="{{$C->id}}">
       <input type="hidden" name="BD" id="BD" value="{{$BD}}">
-      <td class="autre"><button>suprimer</button></td>
+      <td class="autre"><button>Supprimer</button></td>
     </form>
       @else
       <td></td>
@@ -98,7 +98,7 @@
       @csrf
       <input type="hidden" name="id" id="id" value="{{$C->id}}">
       <input type="hidden" name="BD" id="BD" value="{{$BD}}">
-      <td ><button>suprimer</button></td>
+      <td ><button>Supprimer</button></td>
     </form>
     @else
       <td></td>
