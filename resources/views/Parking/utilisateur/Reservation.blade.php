@@ -55,7 +55,7 @@
       <td class="autre"><button>annuler</button></td>        
       </form>
       @else
-      <td>dejat fini</td>
+      <td class="autre">déjà fini</td>
     @endif
   </tr>    
   @else
@@ -72,7 +72,8 @@
       </form>
 
       @else
-      <td>dejat fini</td>
+      <td>déjà fini</td>
+
     @endif
   </tr>  
 @endif
