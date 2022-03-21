@@ -30,26 +30,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-        $utilisateur = Utilisateurs::create([
-            'admin'=>1,
-            'email' => 'admin@gmail.com',
-            'mot_de_passe' => Hash::make('123'),
-            'prénom' => 'root',
-            'nom' => 'admin',
-            'ranfile'=>0,
-            'valider'=>1,
-            'date_demande'=>'',
-        ]);
-        $utilisateur = Utilisateurs::create([
-            'admin'=>0,
-            'email' => 'admin2@gmail.com',
-            'mot_de_passe' => Hash::make('123'),
-            'prénom' => 'root',
-            'nom' => 'admin',
-            'ranfile'=>1,
-            'valider'=>1,
-            'date_demande'=>'',
-        ]);
+        
     }
 
     /**
