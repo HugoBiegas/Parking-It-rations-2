@@ -23,7 +23,7 @@
   <form method="POST" action="/compte">
   @csrf
   <input type="hidden" name="BD" id="BD" value="{{$BD}}">
-  <li class="centre"><button class="header">Compte</button></li><!-- lien ver le compte --> 
+  <li class="centre"><button class="headerActife">Compte</button></li><!-- lien ver le compte --> 
     </form>
   <li class="deco"><a href="/"><img src="{{ "https://img.icons8.com/ios/50/000000/logout-rounded-up.png" }}" href="active" a></li><!-- lien pour se déconecter --> 
 @endsection

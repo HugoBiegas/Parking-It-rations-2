@@ -18,7 +18,7 @@
   <form method="POST" action="/admin-inscriptions">
   @csrf
   <input type="hidden" name="BD" id="BD" value="{{$BD}}">
-  <li class="centre"><button class="header">Paramètre compte</button></li><!-- lien ver le compte --> 
+  <li class="centre"><button class="headerActife">Paramètre compte</button></li><!-- lien ver le compte --> 
     </form>
   <form method="POST" action="/compte">
   @csrf
