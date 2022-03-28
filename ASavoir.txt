@@ -1,3 +1,6 @@
+Admin : admin@gmail.com  MDP: 123
+User : admin2@gmail.com  MDP : 123
+
 A QUOI SERT CE DOCUMENT ?
 
 Document pour renseigner tout ce qui est utile pour :
