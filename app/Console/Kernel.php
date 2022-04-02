@@ -30,19 +30,26 @@ class Kernel extends ConsoleKernel
         foreach ($Place as $p) {
             //si il sont obselette on les réinitialise (on as pas besoins de changer l'historique car ces la valeur par default)
             if ($p->date_fin == date('d-m-y')) {
+                $util = Utilisateurs::find($p->ProrioActu);
+                if ($util->rangfile !=0) {
+                    $util->rangfile = 0;
+                    $util->update();
+                }
                 $recal = place::find($p->id);
                 $recal->ProrioActu = 0;
                 $recal->date_debut = null;
                 $recal->date_fin = null;
                 $recal->update();
+                //récupére tout les historique
                 $recal = Historique::find($recal->ProrioActu);
                 $cptH=0;
                 foreach($recal as $r){
                     $cptH++;
                 }
+                //récupére l'historique préci
                 $recal = Historique::find($cptH);
                 $recal->date_fin_reserve =date('d-m-y');
-                $recal->update();
+                $recal->update();                
             }else
                 $cpt++;
             
@@ -61,6 +68,7 @@ class Kernel extends ConsoleKernel
             foreach ($listeatt as $l) {
                 //si une place est libre on l'ubdate si non remais la liste d'att a jour (resette des places)
                 if ($cpt !=0) {
+                    //attributions des place
                     foreach ($Place as $p) {
                         if($cptPlace == 0){
                             $modif = place::find($p->id);
@@ -71,6 +79,7 @@ class Kernel extends ConsoleKernel
                             $cptPlace=1;
                         }
                     }
+                    $Place = place::where("ProrioActu","=",0)->get();
                     $cptPlace=0;
                     $cpt--;
                 }else{
