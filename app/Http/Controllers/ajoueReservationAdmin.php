@@ -43,8 +43,9 @@ class ajoueReservationAdmin extends Controller
         //coupage préci de la chaine 
         $emailFinal = substr($chainDébut, 0,$firstIndex);
         $BD = Utilisateurs::where('email','=', $emailFinal)->get();
+
         $local = place::find($_POST['palceN']);
-        if ($local->ProrioActu ==0) {
+        if ($local->ProrioActu == 0) {
             $local->ProrioActu = $_POST['personne'];
             $local->date_debut = date('d-m-y');
             $local->date_fin = date('d-m-y', strtotime('+7 days'));
@@ -56,7 +57,23 @@ class ajoueReservationAdmin extends Controller
                 'date_debut_reserve' => date('d-m-y'),
                 'date_fin_reserve'=> date('d-m-y', strtotime('+7 days')),
             ]);
+            $enplacement = Utilisateurs::find($_POST['personne']);
+            if ($enplacement->rangfile != 0) {
+                $enplacement->rangfile = 0;
+                $enplacement->update();
+                $fileAtt = Utilisateurs::where('rangfile','=!', 0)->get();
+                $i=1;
+                foreach ($fileAtt as $k) {
+                    $uti = Utilisateurs::find($k->id);
+                    $uti->rangfile = $i;
+                    $k->update();
+                    $i++;
+                }
+                
+            }
         }
+
+
         $Place = place::all();
         $cpt = 0;
         $personne = Utilisateurs::all();
