@@ -69,6 +69,10 @@ class Reservation extends Controller
         $place->date_debut = null;
         $place->date_fin = null;
         $place->update();
+        $historique= Historique::where('nomPlaceHistorique','=',$place->nomPlace)->where('date_fin_reserve','>=',date('d-m-y'))->get();
+        $historique[0]->date_fin_reserve =date('d-m-y');
+        $historique[0]->update();
+
         $Reservation = $_POST['BD'];
         //couper le début de la chaine 
         $substring ='email":';

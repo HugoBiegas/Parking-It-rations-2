@@ -44,10 +44,10 @@ class reservationAjoue extends Controller
             if (!$Info->isEmpty()) {
                 $sorti=false;
                 $int=0;
-                while ($sorti==false) {
+                while (!$sorti) {
                     $enplacement = place::find($Info[$int]->id);
                     if (!$enplacement->isEmpty) {
-                        if ($enplacement->cacher == 0) {
+                        if (!$enplacement->cacher) {
                             $enplacement->ProrioActu = $BD[0]->id;
                             $enplacement->date_debut = date('d-m-y');
                             $enplacement->date_fin = date('d-m-y', strtotime('+7 days'));
