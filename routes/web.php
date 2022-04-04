@@ -69,6 +69,15 @@ require __DIR__.'/auth.php';
 Route::get('/inscription','InscriptionController@formulaire');
 Route::post('/register','InscriptionController@traitement');
 
+Route::get('/validation-cacher','validation@retoure');
+Route::post('/validation-cacher','validation@formulaire');
+
+Route::get('/suprime-reservent','Reservation@retoure');
+Route::post('/suprime-reservent','Reservation@supreserve');
+
+Route::get('/suspendre-reserve','Reservation@retoure');
+Route::post('/suspendre-reserve','Reservation@suspentreserve');
+
 
 Route::get('/mdpPerdu', function () {
     return view('Parking.compte.MdpPerdu');
@@ -84,6 +93,8 @@ Route::get('/confirm-Inscri', function () {
 Route::get('/page-acueil','acueil@redirection');
 Route::post('/page-acueil','acueil@redirection');
 
+Route::post('/reste', 'Reservation@cacheReste');
+Route::get('/reste', 'Reservation@retoure');
 
 Route::post('/reservation', 'Reservation@ReservationMiseEnPlace');
 Route::post('/reservation-admin', 'Reservation@ReservationMiseEnPlaceAdmin');
@@ -101,6 +112,8 @@ Route::get('/compte', 'Compte@retoure');
 
 Route::post('/Modifier-admin', 'ModifReservation@ModifReser');
 Route::get('/Modifier-admin', 'ModifReservation@retoure');
+
+
 
 Route::post('/admin-inscriptions', 'GereInscriptions@GereInscri');
 Route::get('/admin-inscriptions', 'GereInscriptions@retoure');

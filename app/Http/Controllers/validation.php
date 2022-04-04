@@ -35,4 +35,20 @@ class validation extends Controller
         $cptP=0;
         return view('Parking.admin.Admin_Gerer_Inscription',compact('BD','Place','cpt','Compte','cptP'));
     }
+    public function formulaire(){
+    $Compte = $_POST['BD'];
+    //couper le début de la chaine 
+    $substring ='email":';
+    $firstIndex = stripos($Compte, $substring);
+    //recoupage de la chaine pour récup l'email
+    $chainDébut = substr($Compte, $firstIndex+8,120);
+    $substring ='"';
+    $firstIndex = stripos($chainDébut, $substring);
+    //coupage préci de la chaine 
+    $emailFinal = substr($chainDébut, 0,$firstIndex);
+    $BD = Utilisateurs::where('email','=', $emailFinal)->get();
+    $id = $_POST['id'];
+    return view('Parking.admin.validation-cacher', compact('BD','id'));
+
+    }
 }

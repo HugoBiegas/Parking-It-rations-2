@@ -19,6 +19,7 @@ class Place extends Migration
             $table->string('nomPlace');
             $table->string('date_debut')->nullable()->default(null);
             $table->string('date_fin')->nullable()->default(null);
+            $table->boolean('cacher')->default(false);
             $table->timestamps();
         });
     }

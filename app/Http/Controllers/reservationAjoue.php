@@ -37,22 +37,33 @@ class reservationAjoue extends Controller
                } 
         }
         $histo = Historique::where('ProrioActuHisto','=', $BD[0]->id)->get();
-        if ($cpt == 0 ) {
+        if ($cpt == 0) {
                 $cpt=0;
                 //prise de la place 
 
             if (!$Info->isEmpty()) {
-                $enplacement = place::find($Info[0]->id);
-                $enplacement->ProrioActu = $BD[0]->id;
-                $enplacement->date_debut = date('d-m-y');
-                $enplacement->date_fin = date('d-m-y', strtotime('+7 days'));
-                $enplacement->update(); 
-                Historique::create([
-                    'ProrioActuHisto'=>$BD[0]->id,
-                    'nomPlaceHistorique'=>$enplacement->nomPlace,
-                    'date_debut_reserve' => date('d-m-y'),
-                    'date_fin_reserve'=> date('d-m-y', strtotime('+7 days')),
-                ]);
+                $sorti=false;
+                $int=0;
+                while ($sorti==false) {
+                    $enplacement = place::find($Info[$int]->id);
+                    if (!$enplacement->isEmpty) {
+                        if ($enplacement->cacher == 0) {
+                            $enplacement->ProrioActu = $BD[0]->id;
+                            $enplacement->date_debut = date('d-m-y');
+                            $enplacement->date_fin = date('d-m-y', strtotime('+7 days'));
+                            $enplacement->update(); 
+                            Historique::create([
+                            'ProrioActuHisto'=>$BD[0]->id,
+                            'nomPlaceHistorique'=>$enplacement->nomPlace,
+                            'date_debut_reserve' => date('d-m-y'),
+                            'date_fin_reserve'=> date('d-m-y', strtotime('+7 days')),
+                            ]);
+                            $sorti=true;
+                        }
+                        $int++;
+                    }else
+                        $sorti=true;
+                }
                 $histo = Historique::where('ProrioActuHisto','=', $BD[0]->id)->get();
                 return view('Parking.utilisateur.Reservation',compact('BD','histo','cpt'));   
 

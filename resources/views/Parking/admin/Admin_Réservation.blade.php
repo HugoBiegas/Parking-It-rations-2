@@ -46,6 +46,7 @@
     <td class="bar">Date réservation</td>
     <td class="bar">N°place</td>
     <td class="bar">Date expiration</td>
+    <td class="bar">cacher</td>
     <td class="bar">Supprimer</td>
   </tr>
   @foreach($Place as $p)
@@ -55,6 +56,21 @@
     <td class="autre">{{$p->date_debut}}</td>
     <td class="autre">{{$p->id}}</td>
     <td class="autre">{{$p->date_fin}}</td>
+    @if($p->cacher == 0)
+      <form method="POST" action="/validation-cacher">
+      @csrf
+      <input type="hidden" name="BD" id="BD" value="{{$BD}}">
+      <input type="hidden" name="id" id="id" value="{{$p->id}}">
+      <td><button class="image"><img src="{{ asset('image/croix.jpg') }}"></button></td><!-- lien ver le compte --> 
+      </form>
+    @else
+          <form method="POST" action="/reste">
+      @csrf
+      <input type="hidden" name="BD" id="BD" value="{{$BD}}">
+      <input type="hidden" name="id" id="id" value="{{$p->id}}">
+      <td><button class="image"><img src="{{ asset('image/valider.jpg') }}"></button></td><!-- lien ver le compte --> 
+      </form>
+    @endif
     @if($p->ProrioActu != 0)
       <form method="POST" action="/suprimer">
     @csrf
@@ -72,6 +88,21 @@
     <td >{{$p->date_debut}}</td>
     <td >{{$p->id}}</td>
     <td >{{$p->date_fin}}</td>
+    @if($p->cacher == 0)
+      <form method="POST" action="/validation-cacher">
+      @csrf
+      <input type="hidden" name="BD" id="BD" value="{{$BD}}">
+      <input type="hidden" name="id" id="id" value="{{$p->id}}">
+      <td><button class="image"><img src="{{ asset('image/croix.jpg') }}"></button></td><!-- lien ver le compte --> 
+      </form>
+    @else
+          <form method="POST" action="/reste">
+      @csrf
+      <input type="hidden" name="BD" id="BD" value="{{$BD}}">
+      <input type="hidden" name="id" id="id" value="{{$p->id}}">
+      <td><button class="image"><img src="{{ asset('image/valider.jpg') }}"></button></td><!-- lien ver le compte --> 
+      </form>
+    @endif
     @if($p->ProrioActu != 0)
     <form method="POST" action="/suprimer">
     @csrf

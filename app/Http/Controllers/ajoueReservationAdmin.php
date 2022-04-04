@@ -50,7 +50,7 @@ class ajoueReservationAdmin extends Controller
                 $placeDejat = 1;
         }
         $local = place::find($_POST['palceN']);
-        if ($local->ProrioActu == 0 && $placeDejat == 0) {
+        if ($local->ProrioActu == 0 && $placeDejat == 0 && $local->cacher ==0){
             $local->ProrioActu = $_POST['personne'];
             $local->date_debut = date('d-m-y');
             $local->date_fin = date('d-m-y', strtotime('+7 days'));

@@ -13,7 +13,7 @@ class Historique extends Migration
      */
     public function up()
     {
-        Schema::create('Historiques', function (Blueprint $table) {
+        Schema::create('historiques', function (Blueprint $table) {
             $table->id();
             $table->Integer('ProrioActuHisto');
             $table->string('nomPlaceHistorique');
