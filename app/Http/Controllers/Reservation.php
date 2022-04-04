@@ -117,6 +117,7 @@ class Reservation extends Controller
     }
     public function cacheReste(){
         $id = $_POST['id'];
+        $Place = place::find($id);
         $place = place::find($id);
         $place->cacher = false;
         $place->update();

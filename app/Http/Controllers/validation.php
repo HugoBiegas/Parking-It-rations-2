@@ -48,7 +48,20 @@ class validation extends Controller
     $emailFinal = substr($chainDébut, 0,$firstIndex);
     $BD = Utilisateurs::where('email','=', $emailFinal)->get();
     $id = $_POST['id'];
-    return view('Parking.admin.validation-cacher', compact('BD','id'));
+    $emp = place::find($id);
+    if ($emp->ProrioActu!=0) 
+        return view('Parking.admin.validation-cacher', compact('BD','id'));
+    else{
+        $emp->cacher = true;
+        $emp->update();
+        $Place= place::all();
+        $personne = Utilisateurs::all();
+        $nb=0;
+        foreach ($personne as $p) {
+            $nb++;
+        }
+        return view('Parking.admin.Admin_Réservation', ['BD' => $BD,'Place' =>$Place, 'cpt'=>0,'nb'=>$nb]);
+    }
 
     }
 }
